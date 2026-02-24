@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD MOMIN ALI | Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    color:#333;
+}
+
+/* ===== NAVBAR ===== */
+nav{
+    background:#1e293b;
+    color:white;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.25);
+}
+
+nav h1{
+    color:#38bdf8;
+    letter-spacing:1px;
+}
+
+/* ===== HERO ===== */
+.hero{
+    padding:80px 8%;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    background:linear-gradient(135deg,#0ea5e9,#6366f1);
+    color:white;
+}
+
+.hero-text{
+    max-width:520px;
+}
+
+.hero h2{
+    font-size:44px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    opacity:1;
+    line-height:1.6;
+    margin-bottom:25px;
+    font-size:17px;
+}
+
+/* ===== PROFILE IMAGE ===== */
+.profile-img{
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #38bdf8;
+    box-shadow:0 0 40px rgba(56,189,248,0.4);
+}
+
+/* ===== BUTTON ===== */
+.btn{
+    background:#38bdf8;
+    color:#0f172a;
+    padding:12px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:white;
+}
+
+/* ===== SECTION ===== */
+section{
+    padding:70px 8%;
+}
+
+.section-title{
+    font-size:30px;
+    margin-bottom:25px;
+    color:#0f172a;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:white;
+    padding:25px;
+    border-radius:14px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+    line-height:1.7;
+}
+
+/* ===== SKILLS ===== */
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+}
+
+.skill{
+    background:#0ea5e9;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:600;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-5px);
+}
+
+/* ===== CONTACT ===== */
+.contact{
+    text-align:center;
+    background:#0f172a;
+    color:white;
+    padding:40px;
+}
+
+footer{
+    text-align:center;
+    padding:18px;
+    background:#020617;
+    color:#94a3b8;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+    .hero{
+        text-align:center;
+        justify-content:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+    <h1>MD MOMIN ALI</h1>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+
+<div class="hero-text">
+<h2>MD MOMIN ALI</h2>
+<p>
+CSE Student (3rd Year, 6th Semester) with CGPA 3.92.  
+Aspiring Software Engineer, Mobile App Developer, and SQA Engineer.  
+Experienced in Digital Marketing and Social Media Management.
+</p>
+
+<a href="#contact" class="btn">Contact Me</a>
+</div>
+
+<!-- 🔴 IMPORTANT: rename your photo to profile.jpg -->
+<img src="profile.jpg" alt="MD MOMIN ALI" class="profile-img">
+
+</section>
+
+<!-- ===== SUMMARY ===== -->
+<section>
+<h2 class="section-title">Professional Summary</h2>
+<div class="card">
+Motivated Computer Science and Engineering student at Varendra University
+with strong academic performance (CGPA 3.92). Experienced in digital
+marketing, social media management, and content creation. Passionate about
+software development, mobile applications, and software quality assurance.
+Quick learner with strong problem-solving ability and teamwork skills,
+seeking internship opportunities in software or web development.
+</div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section>
+<h2 class="section-title">Technical Skills</h2>
+<div class="skills">
+<div class="skill">C</div>
+<div class="skill">C++</div>
+<div class="skill">Java</div>
+<div class="skill">SQL</div>
+<div class="skill">Python (Intermediate)</div>
+<div class="skill">Digital Marketing</div>
+<div class="skill">Canva Design</div>
+<div class="skill">CapCut Editing</div>
+</div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section>
+<h2 class="section-title">Experience</h2>
+<div class="card">
+<b>Digital Marketing & Social Media Manager</b><br>
+Royal Heroics | Oct 2024 – Present
+<br><br>
+• Manage and grow social media accounts  
+• Create professional marketing designs  
+• Edit promotional videos  
+• Support advertising and lead generation  
+• Worked with international clients  
+</div>
+</section>
+
+<!-- ===== EDUCATION ===== -->
+<section>
+<h2 class="section-title">Education</h2>
+
+<div class="card">
+<b>B.Sc. in Computer Science & Engineering</b><br>
+Varendra University, Rajshahi<br>
+CGPA: 3.92
+</div>
+
+<div class="card">
+<b>HSC</b><br>
+Varendra College, Rajshahi — GPA 5.00
+</div>
+
+<div class="card">
+<b>SSC</b><br>
+Harimohan Government High School — GPA 5.00
+</div>
+
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact">
+<h2>Contact Me</h2>
+<p>Email: 232311005@vu.edu.bd</p>
+<p>Phone: 017-9287-2188</p>
+</section>
+
+<footer>
+© 2026 MD MOMIN ALI — Internship Portfolio
+</footer>
+
+</body>
+</html>
