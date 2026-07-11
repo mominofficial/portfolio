@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Momin Ali — Shopify & Web Developer</title>
+<link rel="icon" href="logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F1EDD2;
+    --cream-soft:#E7E1BC;
+    --ink:#0E3638;
+    --ink-2:#123F41;
+    --ink-3:#174A4C;
+    --teal:#2C8C87;
+    --teal-bright:#3EAFA6;
+    --gold:#C9A063;
+    --white:#FDFBF0;
+    --text-soft: rgba(253,251,240,0.66);
+    --line: rgba(253,251,240,0.14);
+    --line-dark: rgba(14,54,56,0.14);
+    --maxw: 1180px;
+    --display: 'Bebas Neue', sans-serif;
+    --body: 'Manrope', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  @media(max-width:640px){.wrap{padding:0 20px;}}
+
+  ::selection{background:var(--gold);color:var(--ink);}
+
+  /* -------- signal mark (signature element, echoes logo) -------- */
+  .signal{display:inline-flex;align-items:center;gap:4px;}
+  .signal span{
+    display:block;width:4px;border-radius:2px;background:currentColor;
+  }
+  .signal span:nth-child(1){height:6px;opacity:.45;}
+  .signal span:nth-child(2){height:11px;opacity:.7;}
+  .signal span:nth-child(3){height:16px;}
+
+  /* -------- nav -------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(241,237,210,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:74px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-weight:600;letter-spacing:.02em;font-size:14px;color:var(--ink);}
+  .brand .signal{color:var(--ink);}
+  .brand b{font-family:var(--display);font-size:22px;letter-spacing:.04em;font-weight:400;}
+  .navlinks{display:flex;gap:36px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;}
+  .navlinks a{position:relative;padding-bottom:4px;color:var(--ink-3);transition:color .2s;}
+  .navlinks a:hover{color:var(--teal);}
+  .navlinks a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .25s;}
+  .navlinks a:hover::after{width:100%;}
+  .nav-toggle{display:none;}
+  @media(max-width:760px){
+    .navlinks{display:none;}
+  }
+
+  /* -------- hero -------- */
+  .hero{
+    background:var(--ink);
+    color:var(--white);
+    position:relative;
+    overflow:hidden;
+    padding:150px 0 100px;
+  }
+  .hero-decor{
+    position:absolute;top:-40px;right:-40px;width:520px;height:520px;
+    opacity:.5;pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;
+    position:relative;z-index:2;
+  }
+  @media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:48px;}}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--teal-bright);display:flex;align-items:center;gap:10px;margin-bottom:22px;
+  }
+  .eyebrow .signal{color:var(--teal-bright);}
+  h1.headline{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(52px, 8vw, 96px);
+    line-height:.94;
+    letter-spacing:.005em;
+    text-transform:uppercase;
+    margin-bottom:26px;
+  }
+  h1.headline em{font-style:normal;color:var(--gold);}
+  .hero p.lead{
+    font-size:17px;color:var(--text-soft);max-width:520px;margin-bottom:34px;
+  }
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
+    padding:15px 26px;border-radius:2px;border:1px solid transparent;
+    transition:transform .2s, background .2s, color .2s, border-color .2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-solid{background:var(--gold);color:var(--ink);}
+  .btn-solid:hover{background:var(--teal-bright);}
+  .btn-outline{border-color:var(--line);color:var(--white);}
+  .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+  .hero-photo{
+    position:relative;justify-self:center;width:100%;max-width:320px;
+  }
+  .photo-ring{
+    position:relative;width:100%;aspect-ratio:1/1;border-radius:50%;
+    border:2px solid var(--teal-bright);padding:14px;
+  }
+  .photo-inner{
+    width:100%;height:100%;border-radius:50%;overflow:hidden;
+    background:linear-gradient(155deg,var(--ink-3),var(--ink-2));
+    display:flex;align-items:center;justify-content:center;
+  }
+  .photo-inner img{width:100%;height:100%;object-fit:cover;}
+  .photo-fallback{
+    font-family:var(--display);font-size:64px;color:var(--text-soft);letter-spacing:.05em;
+  }
+  .photo-tag{
+    position:absolute;bottom:6px;right:6px;background:var(--gold);color:var(--ink);
+    font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;
+    padding:7px 12px;border-radius:20px;font-weight:600;
+  }
+
+  /* -------- achievement strip -------- */
+  .achieve{
+    background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:22px 0;
+  }
+  .achieve .wrap{display:flex;align-items:center;gap:18px;flex-wrap:wrap;justify-content:center;text-align:center;}
+  .achieve .signal{color:var(--gold);}
+  .achieve-text{
+    font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--white);
+  }
+  .achieve-text b{color:var(--gold);font-weight:600;}
+
+  /* -------- section shell -------- */
+  section{padding:110px 0;}
+  .section-head{margin-bottom:56px;}
+  .kicker{
+    font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);
+    display:flex;align-items:center;gap:10px;margin-bottom:14px;
+  }
+  .kicker .signal{color:var(--teal);}
+  h2.section-title{
+    font-family:var(--display);font-weight:400;font-size:clamp(36px,5vw,54px);
+    text-transform:uppercase;letter-spacing:.01em;line-height:1;
+  }
+
+  /* -------- about -------- */
+  .about{background:var(--cream);}
+  .about-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:70px;}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:44px;}}
+  .about p{font-size:16.5px;color:var(--ink-3);margin-bottom:18px;max-width:560px;}
+  .about p b{color:var(--ink);}
+  .stat-list{border-top:1px solid var(--line-dark);}
+  .stat-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:20px 0;border-bottom:1px solid var(--line-dark);
+    gap:20px;
+  }
+  .stat-label{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);}
+  .stat-value{font-family:var(--display);font-size:26px;letter-spacing:.02em;}
+
+  /* -------- skills -------- */
+  .skills{background:var(--cream-soft);}
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-dark);}
+  @media(max-width:760px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-col{padding:44px;}
+  .skill-col + .skill-col{border-left:1px solid var(--line-dark);}
+  @media(max-width:760px){.skill-col + .skill-col{border-left:none;border-top:1px solid var(--line-dark);}}
+  .skill-col h3{
+    font-family:var(--display);font-size:26px;letter-spacing:.02em;text-transform:uppercase;margin-bottom:22px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .skill-col h3 .signal{color:var(--teal);}
+  .skill-col.marketing h3 .signal{color:var(--gold);}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:10px;}
+  .tag{
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.03em;
+    padding:9px 14px;border:1px solid var(--line-dark);border-radius:20px;color:var(--ink-3);
+    background:var(--cream);
+  }
+
+  /* -------- projects -------- */
+  .projects{background:var(--ink);color:var(--white);}
+  .projects .kicker{color:var(--teal-bright);}
+  .projects .kicker .signal{color:var(--teal-bright);}
+  .projects h2.section-title{color:var(--white);}
+  .subgroup-title{
+    font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);
+    margin:70px 0 28px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .subgroup-title:first-of-type{margin-top:0;}
+  .subgroup-title::after{content:'';flex:1;height:1px;background:var(--line);}
+
+  .browser-card{
+    background:var(--ink-2);border:1px solid var(--line);border-radius:6px;overflow:hidden;
+    transition:transform .25s, border-color .25s;
+  }
+  .browser-card:hover{transform:translateY(-4px);border-color:var(--teal-bright);}
+  .browser-bar{
+    display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--ink-3);
+    border-bottom:1px solid var(--line);
+  }
+  .browser-dot{width:8px;height:8px;border-radius:50%;background:var(--line);}
+  .browser-url{
+    font-family:var(--mono);font-size:11px;color:var(--text-soft);margin-left:8px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .browser-shot{
+    aspect-ratio:16/10;background:linear-gradient(160deg,var(--ink-3),var(--ink-2));
+    display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+  }
+  .browser-shot img{width:100%;height:100%;object-fit:cover;object-position:top;}
+  .shot-fallback{
+    font-family:var(--mono);font-size:11.5px;color:var(--text-soft);text-align:center;padding:20px;letter-spacing:.03em;
+  }
+  .browser-body{padding:22px 24px 26px;}
+  .browser-body h4{font-family:var(--display);font-size:24px;letter-spacing:.02em;margin-bottom:8px;text-transform:uppercase;}
+  .browser-body p{font-size:14px;color:var(--text-soft);margin-bottom:16px;}
+  .pass-note{
+    font-family:var(--mono);font-size:11.5px;color:var(--gold);margin-bottom:16px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .card-cta{
+    font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-bright);
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .card-cta:hover{color:var(--gold);}
+
+  .proj-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media(max-width:780px){.proj-grid-2{grid-template-columns:1fr;}}
+
+  .proj-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media(max-width:900px){.proj-grid-3{grid-template-columns:1fr 1fr;}}
+  @media(max-width:600px){.proj-grid-3{grid-template-columns:1fr;}}
+
+  .mini-card{
+    background:var(--ink-2);border:1px solid var(--line);border-radius:6px;overflow:hidden;
+    transition:transform .25s, border-color .25s;
+  }
+  .mini-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+  .mini-shot{
+    aspect-ratio:4/3;background:linear-gradient(160deg,var(--ink-3),var(--ink-2));
+    display:flex;align-items:center;justify-content:center;overflow:hidden;
+  }
+  .mini-shot img{width:100%;height:100%;object-fit:cover;}
+  .mini-body{padding:18px 20px 22px;}
+  .mini-body h5{font-family:var(--display);font-size:19px;letter-spacing:.02em;text-transform:uppercase;margin-bottom:6px;}
+  .mini-body p{font-size:13px;color:var(--text-soft);}
+  .mini-tag{
+    font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:8px;display:block;
+  }
+
+  /* -------- courses -------- */
+  .courses{background:var(--cream);}
+  .course-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:24px;}
+  .course-card{
+    border:1px solid var(--line-dark);padding:32px;position:relative;background:var(--cream-soft);
+  }
+  .course-status{
+    position:absolute;top:32px;right:32px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    padding:6px 12px;border-radius:20px;
+  }
+  .status-running{background:var(--gold);color:var(--ink);}
+  .status-done{background:var(--teal);color:var(--white);}
+  .course-card h4{font-family:var(--display);font-size:25px;letter-spacing:.02em;text-transform:uppercase;margin-bottom:10px;max-width:82%;}
+  .course-card p{font-size:13.5px;color:var(--ink-3);margin-bottom:14px;}
+  .course-meta{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--teal);}
+
+  /* -------- contact / footer -------- */
+  footer{background:var(--ink);color:var(--white);padding:90px 0 40px;}
+  .contact-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:70px;}
+  .contact-top h2{font-family:var(--display);font-size:clamp(38px,6vw,64px);text-transform:uppercase;letter-spacing:.01em;max-width:600px;line-height:1.02;}
+  .contact-top h2 em{font-style:normal;color:var(--gold);}
+  .contact-links{display:flex;flex-direction:column;gap:14px;}
+  .contact-links a{
+    font-family:var(--mono);font-size:14px;letter-spacing:.02em;color:var(--text-soft);
+    display:flex;align-items:center;gap:10px;transition:color .2s;
+  }
+  .contact-links a:hover{color:var(--gold);}
+  .foot-bottom{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+    border-top:1px solid var(--line);padding-top:28px;
+    font-family:var(--mono);font-size:11.5px;color:var(--text-soft);letter-spacing:.03em;
+  }
+  .foot-bottom .signal{color:var(--gold);}
+
+  .social-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px;}
+  .social-pill{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:var(--mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;
+    padding:12px 18px;border:1px solid var(--line);border-radius:30px;color:var(--white);
+    transition:border-color .2s, color .2s, background .2s;
+  }
+  .social-pill:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,160,99,0.08);}
+  .social-pill.whatsapp{border-color:var(--teal-bright);color:var(--teal-bright);}
+  .social-pill.whatsapp:hover{border-color:var(--gold);color:var(--gold);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <span class="signal"><span></span><span></span><span></span></span>
+      <b>MOMIN ALI</b>
+    </div>
+    <div class="navlinks">
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#courses">Courses</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <svg class="hero-decor" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="330" cy="70" r="4" fill="#3EAFA6"/>
+    <rect x="300" y="90" width="14" height="80" rx="7" transform="rotate(35 300 90)" fill="#3EAFA6" opacity="0.5"/>
+    <rect x="250" y="60" width="14" height="130" rx="7" transform="rotate(35 250 60)" fill="#3EAFA6" opacity="0.3"/>
+    <rect x="200" y="30" width="14" height="180" rx="7" transform="rotate(35 200 30)" fill="#3EAFA6" opacity="0.15"/>
+    <circle cx="60" cy="330" r="200" stroke="#3EAFA6" stroke-opacity="0.08" stroke-width="1.5"/>
+  </svg>
+
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">
+        <span class="signal"><span></span><span></span><span></span></span>
+        Shopify Developer &amp; Web Development Engineer
+      </div>
+      <h1 class="headline">I build online stores &amp; websites that <em>convert</em>.</h1>
+      <p class="lead">Final-year CS &amp; Engineering student at Varendra University, currently building Shopify stores and web applications. Before this, I spent a year running social media, ad campaigns and lead generation for international clients — so every site I build is built to sell, not just to look good.</p>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-solid">View my work</a>
+        <a href="#contact" class="btn btn-outline">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="photo-ring">
+        <div class="photo-inner">
+          <img src="profile.png" alt="Momin Ali"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="photo-fallback" style="display:none;">MA</div>
+        </div>
+      </div>
+      <div class="photo-tag">Rajshahi, BD</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACHIEVEMENT STRIP ============ -->
+<div class="achieve">
+  <div class="wrap">
+    <span class="signal"><span></span><span></span><span></span></span>
+    <span class="achieve-text"><b>NASA Space Apps Challenge 2025</b> — 2nd Runner-Up, Rajshahi Regional</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="kicker"><span class="signal"><span></span><span></span><span></span></span> About</div>
+      <h2 class="section-title" style="margin-bottom:28px;">From growing accounts<br>to building platforms.</h2>
+      <p>I'm <b>Momin Ali</b>, a Computer Science &amp; Engineering student in my final year at Varendra University, Rajshahi. My work today is focused on <b>Shopify development</b> and <b>web development</b> — building storefronts, custom themes and functional websites for real clients.</p>
+      <p>Before moving into development, I spent time managing social media, running Facebook, Google and TikTok ad campaigns, and generating leads for international clients across Dubai, the USA and Italy — including setting up WhatsApp API automation for business growth. That background still shapes how I build: I design for conversion, not just for looks.</p>
+    </div>
+    <div class="stat-list">
+      <div class="stat-row"><span class="stat-label">Currently</span><span class="stat-value">Final Year, B.Sc. in CSE</span></div>
+      <div class="stat-row"><span class="stat-label">CGPA (last 6 semesters)</span><span class="stat-value">3.93</span></div>
+      <div class="stat-row"><span class="stat-label">University</span><span class="stat-value">Varendra University</span></div>
+      <div class="stat-row"><span class="stat-label">Working ON</span><span class="stat-value">Shopify + Web Dev</span></div>
+      <div class="stat-row"><span class="stat-label">Experienced And Working also</span><span class="stat-value">Digital Marketing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="skills" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="signal"><span></span><span></span><span></span></span> Capabilities</div>
+      <h2 class="section-title">What I bring to a project.</h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="skills-grid">
+      <div class="skill-col dev">
+        <h3><span class="signal"><span></span><span></span><span></span></span> Development</h3>
+        <div class="skill-tags">
+          <span class="tag">Shopify Theme Development</span>
+          <span class="tag">Liquid</span>
+          <span class="tag">HTML / CSS / JavaScript</span>
+          <span class="tag">Storefront Customization</span>
+          <span class="tag">Responsive Web Design</span>
+          <span class="tag">PHP &amp; MySQL</span>
+          <span class="tag">Software Testing &amp; Bug Tracking</span>
+        </div>
+      </div>
+      <div class="skill-col marketing">
+        <h3><span class="signal"><span></span><span></span><span></span></span> Marketing &amp; Growth</h3>
+        <div class="skill-tags">
+          <span class="tag">Facebook, Google &amp; TikTok Ads</span>
+          <span class="tag">Lead Generation</span>
+          <span class="tag">WhatsApp API Automation</span>
+          <span class="tag">Canva Graphic Design</span>
+          <span class="tag">CapCut Video Editing</span>
+          <span class="tag">Social Media Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="signal"><span></span><span></span><span></span></span> Selected Work</div>
+      <h2 class="section-title">Stores I've built. Growth I've driven.</h2>
+    </div>
+
+    <div class="subgroup-title">Shopify Builds</div>
+    <div class="proj-grid-2">
+
+      <div class="browser-card">
+        <div class="browser-bar">
+          <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+          <span class="browser-url">twmxqh-bp.myshopify.com</span>
+        </div>
+        <div class="browser-shot">
+          <img src="shopify-project-1.png" alt="Shopify project one"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="shot-fallback" style="display:none;">Add screenshot as<br><b>shopify-project-1.jpg</b></div>
+        </div>
+        <div class="browser-body">
+          <h4>Shopify Store 01</h4>
+          <p>Custom-built Shopify storefront — theme setup, product structure and layout built for a clean shopping experience.</p>
+          <a class="card-cta" href="https://twmxqh-bp.myshopify.com/" target="_blank" rel="noopener">Visit store ↗</a>
+        </div>
+      </div>
+
+      <div class="browser-card">
+        <div class="browser-bar">
+          <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+          <span class="browser-url">mitech14.myshopify.com</span>
+        </div>
+        <div class="browser-shot">
+          <img src="shopify-project-2.png" alt="Shopify project two"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="shot-fallback" style="display:none;">Add screenshot as<br><b>shopify-project-2.jpg</b></div>
+        </div>
+        <div class="browser-body">
+          <h4>Shopify Store 02</h4>
+          <p>Password-protected Shopify build — full storefront development including custom sections and store configuration.</p>
+          <div class="pass-note">🔒 Store password: 123</div>
+          <a class="card-cta" href="https://mitech14.myshopify.com/" target="_blank" rel="noopener">Visit store ↗</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="subgroup-title">Web Development Builds</div>
+    <div class="proj-grid-2">
+
+      <div class="browser-card">
+        <div class="browser-bar">
+          <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+          <span class="browser-url">mominofficial.github.io/assignment1</span>
+        </div>
+        <div class="browser-shot">
+          <img src="webdev-project-1.png" alt="Web development project one"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="shot-fallback" style="display:none;">Add screenshot as<br><b>webdev-project-1.jpg</b></div>
+        </div>
+        <div class="browser-body">
+          <h4>Assignment 01</h4>
+          <p>A hand-built HTML &amp; CSS project — layout, structure and styling written from scratch, no framework. More Shopify and web builds coming soon.</p>
+          <a class="card-cta" href="https://mominofficial.github.io/assignment1/#" target="_blank" rel="noopener">View project ↗</a>
+        </div>
+      </div>
+
+      <div class="browser-card" style="display:flex;align-items:center;justify-content:center;">
+        <div class="browser-body" style="text-align:center;padding:60px 30px;">
+          <h4 style="margin-bottom:10px;">More Coming Soon</h4>
+          <p style="margin-bottom:0;">Additional Shopify and web development builds are on the way.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="subgroup-title">Marketing &amp; Growth Work</div>
+    <div class="proj-grid-3">
+
+      <div class="mini-card">
+        <div class="mini-shot">
+          <img src="marketing-ad-campaign.jpg" alt="Ad campaign screenshot"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="shot-fallback" style="display:none;">Add screenshot as<br><b>marketing-ad-campaign.jpg</b></div>
+        </div>
+        <div class="mini-body">
+          <span class="mini-tag">Paid Ads</span>
+          <h5>Ad Campaign</h5>
+          <p>Facebook &amp; Google ad campaign — audience targeting, creative and performance results.</p>
+        </div>
+      </div>
+
+      <div class="mini-card">
+        <div class="mini-shot">
+          <img src="marketing-lead-generation.jpg" alt="Lead generation screenshot"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="shot-fallback" style="display:none;">Add screenshot as<br><b>marketing-lead-generation.jpg</b></div>
+        </div>
+        <div class="mini-body">
+          <span class="mini-tag">Lead Gen</span>
+          <h5>Lead Generation</h5>
+          <p>Client lead-generation work for international buyers across Dubai, the USA and Italy.</p>
+        </div>
+      </div>
+
+      <div class="mini-card">
+        <div class="mini-shot">
+          <img src="marketing-whatsapp-automation.jpg" alt="WhatsApp automation screenshot"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="shot-fallback" style="display:none;">Add screenshot as<br><b>marketing-whatsapp-automation.jpg</b></div>
+        </div>
+        <div class="mini-body">
+          <span class="mini-tag">Automation</span>
+          <h5>WhatsApp Automation</h5>
+          <p>WhatsApp API setup used for business messaging and lead follow-up at scale.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section class="courses" id="courses">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="signal"><span></span><span></span><span></span></span> Training</div>
+      <h2 class="section-title">Courses I've taken to get here.</h2>
+    </div>
+    <div class="course-grid">
+      <div class="course-card">
+        <span class="course-status status-done">Completed</span>
+        <h4>Shopify Development</h4>
+        <p>Focused, hands-on course covering Shopify theme customization, Liquid, store setup and app integration for building client-ready stores.</p>
+        <div class="course-meta">Shopify Development Track</div>
+      </div>
+      <div class="course-card">
+        <span class="course-status status-running">Running</span>
+        <h4>Web Development</h4>
+        <p>Full-stack web development program covering modern HTML, CSS, JavaScript and backend fundamentals.</p>
+        <div class="course-meta">Programming Hero — Batch 14</div>
+      </div>
+      <div class="course-card">
+        <span class="course-status status-done">Completed</span>
+        <h4>Digital Marketing</h4>
+        <p>Core digital marketing course covering paid ads, audience targeting and campaign strategy across platforms.</p>
+        <div class="course-meta">Digital Marketing Track</div>
+      </div>
+      <div class="course-card">
+        <span class="course-status status-done">Completed</span>
+        <h4>CapCut Video Editing</h4>
+        <p>Professional video editing course — cuts, transitions and pacing for marketing and social content.</p>
+        <div class="course-meta">Video Editing (Professional)</div>
+      </div>
+      <div class="course-card">
+        <span class="course-status status-done">Completed</span>
+        <h4>Prompt Engineering</h4>
+        <p>Applied course on writing effective prompts for AI tools — structuring instructions to get reliable, high-quality output.</p>
+        <div class="course-meta">Prompt Engineering Track</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / FOOTER ============ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-top">
+      <h2>Let's build your <em>store</em> or <em>site</em> next.</h2>
+      <div class="contact-links">
+        <a href="tel:+8801792872188">📞 +880 17-92872188</a>
+        <a href="mailto:mstjahan.cnj.bd@gmail.com">✉️ mstjahan.cnj.bd@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="social-row">
+      <a class="social-pill whatsapp" href="https://wa.me/8801792872188" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="social-pill" href="https://github.com/mominofficial" target="_blank" rel="noopener">GitHub</a>
+      <a class="social-pill" href="https://www.linkedin.com/in/md-momin-ali-3913b6351?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="social-pill" href="https://www.facebook.com/share/197nfLBTN9/" target="_blank" rel="noopener">Facebook</a>
+      <a class="social-pill" href="https://www.instagram.com/momin141016?igsh=amkxd29iNnZjNGk1" target="_blank" rel="noopener">Instagram</a>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Momin Ali</span>
+      <span class="signal"><span></span><span></span><span></span></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
