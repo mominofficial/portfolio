@@ -1,8 +1,15 @@
-// Main JavaScript for MD Momin Ali Portfolio
-import { projects } from '../data/projects.js';
-import { certificates } from '../data/certificates.js';
+// Immediate theme check to prevent flash
+(function() {
+  const savedTheme = localStorage.getItem('momin-theme');
+  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark-theme');
+  } else {
+    document.documentElement.classList.remove('dark-theme');
+  }
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
+  initThemeToggle();
   initNavbar();
   initMobileDrawer();
   initScrollReveals();
@@ -11,6 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyActions();
   initFilterTabs();
 });
+
+/* --------------------------------------------------------------------------
+   0. DARK / LIGHT THEME TOGGLE
+   -------------------------------------------------------------------------- */
+function initThemeToggle() {
+  const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+  if (!toggleBtns.length) return;
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.toggle('dark-theme');
+      localStorage.setItem('momin-theme', isDark ? 'dark' : 'light');
+    });
+  });
+}
 
 /* --------------------------------------------------------------------------
    1. NAVBAR SCROLL EFFECT

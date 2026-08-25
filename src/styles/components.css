@@ -1733,3 +1733,132 @@
     flex-shrink: 0;
   }
 }
+
+/* --------------------------------------------------------------------------
+   DARK / LIGHT THEME TOGGLE BUTTON & OVERRIDES
+   -------------------------------------------------------------------------- */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-offwhite);
+  border: 1px solid var(--border-cream);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--bg-teal-dark);
+  color: var(--text-light);
+  border-color: var(--bg-teal-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-btn .sun-icon {
+  display: none;
+}
+
+.theme-toggle-btn .moon-icon {
+  display: block;
+}
+
+html.dark-theme .theme-toggle-btn .sun-icon {
+  display: block;
+  color: var(--accent-gold);
+}
+
+html.dark-theme .theme-toggle-btn .moon-icon {
+  display: none;
+}
+
+html.dark-theme .theme-toggle-btn {
+  background-color: var(--bg-cream-soft);
+  border-color: var(--border-cream-dark);
+  color: var(--text-light);
+}
+
+html.dark-theme .theme-toggle-btn:hover {
+  background-color: var(--bg-teal-subtle);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+/* Dark Theme Specific Element Polish */
+html.dark-theme .navbar {
+  background-color: rgba(9, 23, 22, 0.94);
+  border-bottom-color: var(--border-cream);
+}
+
+html.dark-theme .navbar.scrolled {
+  background-color: rgba(9, 23, 22, 0.98);
+  border-bottom-color: var(--border-cream-dark);
+}
+
+html.dark-theme .brand-logo {
+  color: var(--text-light);
+}
+
+html.dark-theme .brand-badge {
+  background-color: var(--bg-teal-subtle);
+  color: var(--accent-gold);
+  border-color: var(--border-cream-dark);
+}
+
+html.dark-theme .nav-link {
+  color: var(--text-dark-muted);
+}
+
+html.dark-theme .nav-link:hover,
+html.dark-theme .nav-link.active {
+  color: var(--text-light);
+}
+
+html.dark-theme .nav-link::after {
+  background-color: var(--accent-gold);
+}
+
+html.dark-theme .mobile-toggle span {
+  background-color: var(--text-light);
+}
+
+html.dark-theme .mobile-drawer {
+  background-color: var(--bg-cream);
+  border-bottom-color: var(--border-cream-dark);
+}
+
+html.dark-theme .project-card,
+html.dark-theme .cert-card,
+html.dark-theme .service-card,
+html.dark-theme .contact-card,
+html.dark-theme .stat-card,
+html.dark-theme .gmc-card,
+html.dark-theme .full-width-card,
+html.dark-theme .agency-highlight-card,
+html.dark-theme .case-study-hero {
+  background-color: var(--bg-offwhite);
+  border-color: var(--border-cream);
+}
+
+html.dark-theme .project-card:hover,
+html.dark-theme .cert-card:hover,
+html.dark-theme .service-card:hover {
+  border-color: var(--accent-gold);
+  box-shadow: var(--shadow-lg);
+}
+
+html.dark-theme .modal-dialog {
+  background-color: var(--bg-offwhite);
+  border-color: var(--border-cream-dark);
+}
+
+html.dark-theme .footer {
+  background-color: var(--bg-teal-dark);
+  border-top-color: var(--border-teal-dark);
+}
+

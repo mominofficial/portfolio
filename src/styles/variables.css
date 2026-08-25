@@ -53,3 +53,40 @@
   --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* Dark Theme Overrides */
+html.dark-theme {
+  --bg-cream: #091716;
+  --bg-cream-soft: #0E2221;
+  --bg-offwhite: #132D2C;
+  --bg-teal-dark: #05100F;
+  --bg-teal-rich: #091A19;
+  --bg-teal-medium: #102B29;
+  --bg-teal-subtle: #173D3A;
+
+  /* Typography Colors */
+  --text-dark: #F3F7F6;
+  --text-dark-muted: #B0C4C3;
+  --text-dark-subtle: #799897;
+  --text-light: #F3F7F6;
+  --text-light-muted: #C4D6D5;
+  --text-light-subtle: #849E9D;
+
+  /* Accent & Warm Details */
+  --accent-gold: #D8AF6E;
+  --accent-gold-soft: #EFE0C9;
+  --accent-badge-bg: #153836;
+  --accent-badge-text: #EFE0C9;
+
+  /* Editorial Borders */
+  --border-cream: #173634;
+  --border-cream-dark: #204A48;
+  --border-teal-dark: #19403E;
+  --border-teal-subtle: #245855;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.65);
+}
