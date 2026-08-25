@@ -164,7 +164,7 @@ export const projects = [
     categoryLabel: "Full-Stack Web App",
     featured: true,
     gridType: "featured-large",
-    image: "deshbrief.png",
+    image: "deshbrief-mockup.jpg",
     url: "https://mominofficial.github.io/deshbrief/",
     githubUrl: "https://github.com/mominofficial/deshbrief",
     description: "Modern, responsive Bangladesh news aggregator collecting live headlines from official RSS/Atom feeds (Prothom Alo, Daily Star, Jago News, Dhaka Tribune, Dhaka Post, RisingBD) with zero database and automated GitHub Actions sync.",
