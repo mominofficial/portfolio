@@ -1,7 +1,7 @@
-// Immediate theme check to prevent flash
+// Default is always light mode unless explicitly toggled to dark by the user
 (function() {
   const savedTheme = localStorage.getItem('momin-theme');
-  if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  if (savedTheme === 'dark') {
     document.documentElement.classList.add('dark-theme');
   } else {
     document.documentElement.classList.remove('dark-theme');

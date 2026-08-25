@@ -54,39 +54,39 @@
   --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Dark Theme Overrides */
+/* Dark Theme Overrides (High Contrast, Crystal-Clear Readability) */
 html.dark-theme {
-  --bg-cream: #091716;
-  --bg-cream-soft: #0E2221;
-  --bg-offwhite: #132D2C;
-  --bg-teal-dark: #05100F;
-  --bg-teal-rich: #091A19;
-  --bg-teal-medium: #102B29;
-  --bg-teal-subtle: #173D3A;
+  --bg-cream: #0B1716;
+  --bg-cream-soft: #112322;
+  --bg-offwhite: #162D2B;
+  --bg-teal-dark: #071211;
+  --bg-teal-rich: #0D1F1E;
+  --bg-teal-medium: #143230;
+  --bg-teal-subtle: #1C4542;
 
-  /* Typography Colors */
-  --text-dark: #F3F7F6;
-  --text-dark-muted: #B0C4C3;
-  --text-dark-subtle: #799897;
-  --text-light: #F3F7F6;
-  --text-light-muted: #C4D6D5;
-  --text-light-subtle: #849E9D;
+  /* Typography Colors (High Contrast) */
+  --text-dark: #FFFFFF;
+  --text-dark-muted: #CBD5E1;
+  --text-dark-subtle: #94A3B8;
+  --text-light: #FFFFFF;
+  --text-light-muted: #E2E8F0;
+  --text-light-subtle: #94A3B8;
 
   /* Accent & Warm Details */
-  --accent-gold: #D8AF6E;
-  --accent-gold-soft: #EFE0C9;
-  --accent-badge-bg: #153836;
-  --accent-badge-text: #EFE0C9;
+  --accent-gold: #F59E0B;
+  --accent-gold-soft: #FDE68A;
+  --accent-badge-bg: #1B3B39;
+  --accent-badge-text: #FDE68A;
 
   /* Editorial Borders */
-  --border-cream: #173634;
-  --border-cream-dark: #204A48;
-  --border-teal-dark: #19403E;
-  --border-teal-subtle: #245855;
+  --border-cream: #214340;
+  --border-cream-dark: #2C5754;
+  --border-teal-dark: #224644;
+  --border-teal-subtle: #30615D;
 
   /* Shadows */
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
-  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
-  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.65);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.65);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.75);
 }
