@@ -155,7 +155,24 @@ export const projects = [
     result: "Maintained 89.9% Google Ads optimization score and steady low-cost traffic generation."
   },
 
-  // Web Development & Growth
+  // Web Development & Full-Stack Projects
+  {
+    id: "deshbrief",
+    title: "DESHBRIEF — BANGLADESH NEWS AGGREGATOR",
+    tagline: "100% Static Real-Time News Aggregation Portal",
+    category: "webdev",
+    categoryLabel: "Full-Stack Web App",
+    featured: true,
+    gridType: "featured-large",
+    image: "deshbrief.png",
+    url: "https://mominofficial.github.io/deshbrief/",
+    githubUrl: "https://github.com/mominofficial/deshbrief",
+    description: "Modern, responsive Bangladesh news aggregator collecting live headlines from official RSS/Atom feeds (Prothom Alo, Daily Star, Jago News, Dhaka Tribune, Dhaka Post, RisingBD) with zero database and automated GitHub Actions sync.",
+    deliverables: ["React + Vite Single Page App", "Automated Node.js RSS/Atom Parser", "GitHub Actions 30-Min Cron Sync", "Live Search Modal (⌘K)", "Dark & Light Mode", "Bengali Relative Date Engine"],
+    problem: "News readers in Bangladesh face fragmented sources, slow bloated websites, and intrusive ads just to read daily headlines.",
+    strategy: "Engineered a database-free static pipeline ingesting official publisher feeds, normalizing timestamps to Asia/Dhaka, extracting media thumbnails, and deploying continuously via GitHub Actions to GitHub Pages.",
+    result: "Instant sub-second loading, 250+ continuously updated stories, responsive mobile layout, and 100% ethical publisher attribution."
+  },
   {
     id: "programming-hero-assignment",
     title: "Programming Hero — Assignment 1",
