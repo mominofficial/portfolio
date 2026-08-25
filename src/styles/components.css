@@ -1838,6 +1838,71 @@ html.dark-theme .status-pill {
   color: #FFFFFF;
 }
 
+/* Hero Section Dark Mode Polish */
+html.dark-theme .hero-headline .highlight {
+  color: var(--accent-gold) !important;
+}
+
+html.dark-theme .hero-headline .highlight::after {
+  background-color: rgba(245, 158, 11, 0.25);
+}
+
+html.dark-theme .hero-big-name {
+  color: #FFFFFF !important;
+}
+
+html.dark-theme .hero-location-tag {
+  color: var(--accent-gold) !important;
+}
+
+html.dark-theme .hero-role-tag {
+  background-color: var(--bg-teal-subtle);
+  color: var(--accent-gold);
+  border: 1px solid var(--border-cream-dark);
+}
+
+html.dark-theme .hero-secondary-positioning {
+  background-color: var(--bg-cream-soft);
+  border-color: var(--border-cream);
+  border-left-color: var(--accent-gold);
+}
+
+html.dark-theme .hero-secondary-positioning p {
+  color: #FFFFFF !important;
+}
+
+html.dark-theme .hero-secondary-positioning strong {
+  color: var(--accent-gold) !important;
+}
+
+html.dark-theme .hero-visual-card {
+  background-color: var(--bg-offwhite);
+  border-color: var(--border-cream);
+}
+
+html.dark-theme .hero-monogram-tag {
+  color: var(--text-dark-muted);
+}
+
+/* Stats Section Dark Mode Polish */
+html.dark-theme .stats-bar {
+  background-color: var(--bg-teal-dark);
+  border-color: var(--border-teal-dark);
+}
+
+html.dark-theme .stat-number {
+  color: #FFFFFF !important;
+}
+
+html.dark-theme .stat-label {
+  color: var(--text-dark-muted) !important;
+}
+
+html.dark-theme .stat-item {
+  border-left-color: var(--border-teal-dark);
+}
+
+/* Cards & Layouts */
 html.dark-theme .project-card,
 html.dark-theme .cert-card,
 html.dark-theme .service-card,
@@ -1848,7 +1913,8 @@ html.dark-theme .full-width-card,
 html.dark-theme .agency-highlight-card,
 html.dark-theme .case-study-hero,
 html.dark-theme .distinction-card,
-html.dark-theme .testimonial-card {
+html.dark-theme .testimonial-card,
+html.dark-theme .about-hero-card {
   background-color: var(--bg-offwhite);
   border-color: var(--border-cream);
 }
@@ -1871,7 +1937,12 @@ html.dark-theme .project-title,
 html.dark-theme .cert-title,
 html.dark-theme .service-title,
 html.dark-theme .distinction-title,
-html.dark-theme .testimonial-author {
+html.dark-theme .testimonial-author,
+html.dark-theme .section-title,
+html.dark-theme h1,
+html.dark-theme h2,
+html.dark-theme h3,
+html.dark-theme h4 {
   color: #FFFFFF;
 }
 
@@ -2005,5 +2076,6 @@ html.dark-theme .footer a {
 html.dark-theme .footer a:hover {
   color: var(--accent-gold);
 }
+
 
 
