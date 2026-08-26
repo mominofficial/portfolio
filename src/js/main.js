@@ -1,3 +1,6 @@
+import { projects } from '../data/projects.js';
+import { certificates } from '../data/certificates.js';
+
 // Default is always light mode unless explicitly toggled to dark by the user
 (function() {
   const savedTheme = localStorage.getItem('momin-theme');
@@ -106,30 +109,39 @@ function initLightbox() {
   const lightbox = document.getElementById('lightbox-modal');
   const lightboxImg = document.getElementById('lightbox-img');
   const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxDesc = document.getElementById('lightbox-desc');
   const lightboxClose = document.getElementById('lightbox-close');
 
   if (!lightbox || !lightboxImg) return;
 
+  const closeLightbox = () => {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
   document.querySelectorAll('[data-cert-id]').forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      // Don't hijack if user clicked an explicit external link
+      if (e.target.closest('a[target="_blank"]')) return;
+
       const certId = card.getAttribute('data-cert-id');
-      const cert = certificates.find(c => c.id === certId);
+      const cert = (certificates || []).find(c => c.id === certId);
       if (cert) {
         lightboxImg.src = cert.image;
-        lightboxImg.alt = cert.title;
+        lightboxImg.alt = cert.title || 'Certificate';
         if (lightboxCaption) {
-          lightboxCaption.textContent = `${cert.title} — ${cert.issuer}`;
+          lightboxCaption.textContent = `${cert.title} — ${cert.issuer} (${cert.date || ''})`;
+        }
+        if (lightboxDesc) {
+          lightboxDesc.textContent = cert.description || '';
         }
         lightbox.classList.add('active');
+        lightbox.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
       }
     });
   });
-
-  const closeLightbox = () => {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-  };
 
   if (lightboxClose) {
     lightboxClose.addEventListener('click', closeLightbox);
@@ -149,7 +161,7 @@ function initLightbox() {
 }
 
 /* --------------------------------------------------------------------------
-   5. PROJECT CASE STUDY MODAL / DRAWER
+   5. PROJECT CASE STUDY & DETAILS MODAL
    -------------------------------------------------------------------------- */
 function initProjectModals() {
   const modal = document.getElementById('project-modal');
@@ -157,72 +169,147 @@ function initProjectModals() {
 
   const modalImg = document.getElementById('modal-img');
   const modalTitle = document.getElementById('modal-title');
+  const modalTagline = document.getElementById('modal-tagline');
   const modalCategory = document.getElementById('modal-category');
+  const modalPwdWrap = document.getElementById('modal-pwd-wrap');
+  const modalPwdVal = document.getElementById('modal-pwd-val');
   const modalDesc = document.getElementById('modal-desc');
+  const modalDeliverablesSection = document.getElementById('modal-deliverables-section');
   const modalDeliverables = document.getElementById('modal-deliverables');
+  const modalCaseSection = document.getElementById('modal-case-section');
+  const modalCaseHeading = document.getElementById('modal-case-heading');
   const modalCompliance = document.getElementById('modal-compliance');
   const modalLiveBtn = document.getElementById('modal-live-btn');
+  const modalGithubBtn = document.getElementById('modal-github-btn');
   const modalClose = document.getElementById('modal-close');
-
-  document.querySelectorAll('[data-project-id]').forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      // If clicked element was a direct link to the external site, don't hijack unless intended
-      if (e.target.closest('a[target="_blank"]')) return;
-      
-      const projId = trigger.getAttribute('data-project-id');
-      const proj = projects.find(p => p.id === projId);
-      if (!proj) return;
-
-      if (modalImg) modalImg.src = proj.image;
-      if (modalTitle) modalTitle.textContent = proj.title;
-      if (modalCategory) modalCategory.textContent = proj.categoryLabel || 'Case Study';
-      if (modalDesc) modalDesc.textContent = proj.description;
-
-      if (modalDeliverables) {
-        modalDeliverables.innerHTML = '';
-        if (proj.deliverables && proj.deliverables.length) {
-          proj.deliverables.forEach(d => {
-            const li = document.createElement('li');
-            li.textContent = d;
-            modalDeliverables.appendChild(li);
-          });
-        }
-      }
-
-      if (modalCompliance) {
-        if (proj.gmcCompliance) {
-          modalCompliance.textContent = proj.gmcCompliance;
-          modalCompliance.parentElement.style.display = 'block';
-        } else if (proj.problem) {
-          modalCompliance.innerHTML = `<strong>Problem:</strong> ${proj.problem}<br><br><strong>Strategy:</strong> ${proj.strategy}<br><br><strong>Result:</strong> ${proj.result}`;
-          modalCompliance.parentElement.style.display = 'block';
-        } else {
-          modalCompliance.parentElement.style.display = 'none';
-        }
-      }
-
-      if (modalLiveBtn) {
-        if (proj.url) {
-          modalLiveBtn.href = proj.url;
-          modalLiveBtn.style.display = 'inline-flex';
-        } else {
-          modalLiveBtn.style.display = 'none';
-        }
-      }
-
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    });
-  });
 
   const closeModal = () => {
     modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   };
 
+  const openProjectModal = (projId) => {
+    const proj = (projects || []).find(p => p.id === projId);
+    if (!proj) return;
+
+    if (modalImg) {
+      modalImg.src = proj.image || '';
+      modalImg.alt = proj.title || 'Project Preview';
+    }
+    if (modalTitle) modalTitle.textContent = proj.title || '';
+    if (modalTagline) {
+      if (proj.tagline) {
+        modalTagline.textContent = proj.tagline;
+        modalTagline.style.display = 'block';
+      } else {
+        modalTagline.style.display = 'none';
+      }
+    }
+    if (modalCategory) {
+      modalCategory.textContent = proj.categoryLabel || 'Case Study';
+    }
+
+    // Password Indicator
+    if (modalPwdWrap && modalPwdVal) {
+      if (proj.password) {
+        modalPwdVal.textContent = proj.password;
+        modalPwdWrap.style.display = 'inline-flex';
+      } else {
+        modalPwdWrap.style.display = 'none';
+      }
+    }
+
+    if (modalDesc) {
+      modalDesc.textContent = proj.description || '';
+    }
+
+    // Deliverables list
+    if (modalDeliverables) {
+      modalDeliverables.innerHTML = '';
+      if (proj.deliverables && proj.deliverables.length) {
+        proj.deliverables.forEach(d => {
+          const li = document.createElement('li');
+          li.textContent = d;
+          modalDeliverables.appendChild(li);
+        });
+        if (modalDeliverablesSection) modalDeliverablesSection.style.display = 'block';
+      } else {
+        if (modalDeliverablesSection) modalDeliverablesSection.style.display = 'none';
+      }
+    }
+
+    // Case metrics / Problem-Strategy-Result / GMC Compliance
+    if (modalCompliance && modalCaseSection) {
+      if (proj.problem || proj.strategy || proj.result) {
+        let html = '';
+        if (proj.problem) html += `<div class="case-item"><strong class="case-label">Problem / Challenge:</strong><p>${proj.problem}</p></div>`;
+        if (proj.strategy) html += `<div class="case-item"><strong class="case-label">Strategy & Implementation:</strong><p>${proj.strategy}</p></div>`;
+        if (proj.result) html += `<div class="case-item"><strong class="case-label">Impact & Result:</strong><p>${proj.result}</p></div>`;
+        modalCompliance.innerHTML = html;
+        if (modalCaseHeading) modalCaseHeading.textContent = 'Case Study Breakdown';
+        modalCaseSection.style.display = 'block';
+      } else if (proj.gmcCompliance) {
+        modalCompliance.innerHTML = `<div class="case-item"><p>${proj.gmcCompliance}</p></div>`;
+        if (modalCaseHeading) modalCaseHeading.textContent = 'GMC / Merchant Compliance';
+        modalCaseSection.style.display = 'block';
+      } else {
+        modalCaseSection.style.display = 'none';
+      }
+    }
+
+    // Action buttons
+    if (modalLiveBtn) {
+      if (proj.url) {
+        modalLiveBtn.href = proj.url;
+        modalLiveBtn.style.display = 'inline-flex';
+      } else {
+        modalLiveBtn.style.display = 'none';
+      }
+    }
+
+    if (modalGithubBtn) {
+      if (proj.githubUrl) {
+        modalGithubBtn.href = proj.githubUrl;
+        modalGithubBtn.style.display = 'inline-flex';
+      } else {
+        modalGithubBtn.style.display = 'none';
+      }
+    }
+
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  // Attach event listener with delegation / data-project-id check
+  document.addEventListener('click', (e) => {
+    // If clicking a direct external link on the card, let it open normally
+    if (e.target.closest('a[target="_blank"]')) return;
+
+    const trigger = e.target.closest('[data-project-id]');
+    if (trigger) {
+      // Don't trigger if clicking inside the open modal itself
+      if (trigger.closest('#project-modal') && !e.target.closest('[data-project-id]')) return;
+      
+      const projId = trigger.getAttribute('data-project-id');
+      if (projId) {
+        e.preventDefault();
+        openProjectModal(projId);
+      }
+    }
+  });
+
   if (modalClose) modalClose.addEventListener('click', closeModal);
+  
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeModal();
+    }
   });
 }
 
@@ -231,12 +318,13 @@ function initProjectModals() {
    -------------------------------------------------------------------------- */
 function initCopyActions() {
   document.querySelectorAll('[data-copy]').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const textToCopy = btn.getAttribute('data-copy');
       if (!textToCopy) return;
 
       navigator.clipboard.writeText(textToCopy).then(() => {
-        showToast(`Copied to clipboard: ${textToCopy}`);
+        showToast(`Copied: ${textToCopy}`);
       }).catch(() => {
         showToast(`Selected: ${textToCopy}`);
       });
