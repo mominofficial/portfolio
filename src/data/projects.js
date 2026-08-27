@@ -129,6 +129,32 @@ export const projects = [
     result: "Received official confirmation: 'The requested review of Misrepresentation has been completed and the issue no longer appears in your Merchant Center account.' 100% active feed restored."
   },
   {
+    id: "gmc-seveck-wellness",
+    title: "GMC Misrepresentation Fix — Seveck Wellness",
+    category: "gmc",
+    categoryLabel: "GMC Case Study",
+    featured: true,
+    gridType: "full-width",
+    image: "gmc-seveck-wellness.png",
+    description: "Successfully resolved a complex Misrepresentation suspension for health & wellness brand Seveck Wellness, restoring Google Shopping ads and active catalog listings.",
+    problem: "The Merchant Center account for Seveck Wellness was suspended due to Google's strict Misrepresentation and health/supplement claim compliance policies.",
+    strategy: "Performed an in-depth audit of supplement claims, aligned privacy and return policies, corrected merchant contact disclosures, and restructured product feed attributes to meet full Google Merchant Center compliance.",
+    result: "Official clearance letter received: 'The requested review of Misrepresentation for Seveck Wellness is complete and the issue no longer appears in your Merchant Center account.' 100% active account restoration."
+  },
+  {
+    id: "gmc-southern-luxe",
+    title: "GMC Misrepresentation Fix — Southern Luxe Savon",
+    category: "gmc",
+    categoryLabel: "GMC Case Study",
+    featured: true,
+    gridType: "standard",
+    image: "gmc-southern-luxe.png",
+    description: "Cleared Google Merchant Center Misrepresentation policy violation for Southern Luxe Savon (MC ID: 5782690120), regaining full organic and paid Google Shopping eligibility.",
+    problem: "Merchant Center Account (ID: 5782690120) was hit with a misrepresentation policy flag, causing all luxury soap and bath product feeds to be disapproved.",
+    strategy: "Rebuilt checkout policy compliance, verified legal entity branding, standardized GTINs/MPNs, and aligned shipping rate calculation with the live storefront.",
+    result: "Issue resolved and confirmed by Google Merchant Center team: 'Review of Misrepresentation for Southern Luxe Savon is complete.' Account fully in good standing."
+  },
+  {
     id: "shopping-campaign",
     title: "Google Shopping Campaign — Light Keepers Bookstore",
     category: "gmc",

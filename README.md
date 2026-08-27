@@ -9,7 +9,7 @@ A high-end, 100% static portfolio website for **MD Momin Ali** (Shopify Develope
 - **GitHub Pages Ready**: Configured with relative asset paths (`./`) so it works seamlessly on custom domains or GitHub Pages subpaths.
 - **Typography**: Space Grotesk (Headings) + Manrope (Body).
 - **Brand Palette**: Warm Cream (`#F7F4EC`), Deep Dark Teal (`#0A2625`), Soft Gold (`#C89D5C`), and Off-White (`#FAF8F5`).
-- **Real Showcase Assets**: Authentic screenshots for Modeflo, Caspier, Zalivia, ReviveBerry, De_Bellas, Chez Provence, Saltline, Thames Glow Beauty, GMC Misrepresentation Clearance, Google Shopping campaigns, and NASA / Varendra University certifications.
+- **Real Showcase Assets**: Authentic screenshots for Modeflo, Caspier, Zalivia, ReviveBerry, De_Bellas, Chez Provence, Saltline, Thames Glow Beauty, GMC Misrepresentation Clearances (Light Keepers Bookstore, Seveck Wellness, Southern Luxe Savon), Google Shopping campaigns, and NASA / Varendra University certifications.
 
 ---
 
