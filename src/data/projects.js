@@ -1,4 +1,29 @@
 export const projects = [
+  // AI & Mobile Applications
+  {
+    id: "fair-prices",
+    title: "FAIR PRICES (ন্যায্য মূল্য) — AI MARKET & GROCERY BUDGETING APP",
+    tagline: "AI-Powered Citizen Market Price Monitor & Grocery Optimizer for Bangladesh",
+    category: "app",
+    categoryLabel: "AI & Mobile App",
+    featured: true,
+    gridType: "featured-large",
+    image: "fair-prices.jpg",
+    url: "https://github.com/mominofficial",
+    githubUrl: "https://github.com/mominofficial",
+    description: "AI-driven citizen grocery budgeting and market surveillance mobile application designed for Bangladesh. Combines real-time DAM (Department of Agricultural Marketing) government benchmark price sync with crowdsourced citizen market verification and Google Gemini AI smart grocery budgeting.",
+    deliverables: [
+      "React Native & Cross-Platform UI",
+      "Google Gemini AI Smart Budgeting Engine",
+      "DAM Auto-Live Government Price Benchmark Sync",
+      "Citizen Market Monitoring Feed (নাগরিক ফোরাম)",
+      "Gamified Gold Reporter Badges & Points",
+      "Bilingual (Bangla & English) + Dark/Light Mode"
+    ],
+    problem: "Shoppers and families in Bangladesh struggle with volatile commodity prices, syndicate price gouging, lack of transparent local bazaar rates, and budgeting challenges.",
+    strategy: "Engineered an intelligent cross-platform application that ingests official DAM price benchmarks, enables verified shoppers to report live prices with photo receipts, and harnesses Google Gemini API to auto-generate healthy, balanced grocery lists tailored to specific budgets and family sizes.",
+    result: "Full transparency across essential commodities (rice, onion, oil, vegetables, poultry), real-time price trend alerts, crowdsourced community protection against overpricing, and automated AI meal & budget planning."
+  },
   // GMC Approved Shopify Stores
   {
     id: "modeflo",
