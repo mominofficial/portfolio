@@ -263,6 +263,14 @@ function initProjectModals() {
       if (proj.url) {
         modalLiveBtn.href = proj.url;
         modalLiveBtn.style.display = 'inline-flex';
+        const spanText = modalLiveBtn.querySelector('span:first-child');
+        if (spanText) {
+          if (proj.category === 'app' || proj.id === 'fair-prices') {
+            spanText.textContent = 'Download APK (Android)';
+          } else {
+            spanText.textContent = 'Open Live Website';
+          }
+        }
       } else {
         modalLiveBtn.style.display = 'none';
       }

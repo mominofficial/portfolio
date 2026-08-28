@@ -9,7 +9,7 @@ export const projects = [
     featured: true,
     gridType: "featured-large",
     image: "fair-prices.jpg",
-    url: "https://github.com/mominofficial",
+    url: "https://drive.google.com/drive/folders/1kCXA5lbp44P2t90yDaLO5-8eJDEYx3F3?usp=sharing",
     githubUrl: "https://github.com/mominofficial",
     description: "AI-driven citizen grocery budgeting and market surveillance mobile application designed for Bangladesh. Combines real-time DAM (Department of Agricultural Marketing) government benchmark price sync with crowdsourced citizen market verification and Google Gemini AI smart grocery budgeting.",
     deliverables: [
