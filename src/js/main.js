@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectModals();
   initCopyActions();
   initFilterTabs();
+  initStackedCardsScrollEffect();
 });
 
 /* --------------------------------------------------------------------------
@@ -380,3 +381,40 @@ function initFilterTabs() {
     });
   });
 }
+
+/* --------------------------------------------------------------------------
+   8. SCROLL-DRIVEN STACKED CARDS DYNAMICS
+   -------------------------------------------------------------------------- */
+function initStackedCardsScrollEffect() {
+  const cards = document.querySelectorAll('.stacked-project-card');
+  if (!cards.length) return;
+
+  const handleScroll = () => {
+    const navbarHeight = 90;
+
+    cards.forEach((card, index) => {
+      // Check distance from sticky top
+      const rect = card.getBoundingClientRect();
+      const nextCard = cards[index + 1];
+
+      if (nextCard) {
+        const nextRect = nextCard.getBoundingClientRect();
+        // If next card is sliding over current card
+        const overlap = Math.max(0, rect.bottom - nextRect.top);
+        if (overlap > 0 && nextRect.top <= (navbarHeight + 100)) {
+          const progress = Math.min(1, overlap / rect.height);
+          const scale = 1 - (progress * 0.04);
+          const brightness = 1 - (progress * 0.06);
+          card.style.transform = `scale(${scale})`;
+          card.style.filter = `brightness(${brightness})`;
+        } else {
+          card.style.transform = 'scale(1)';
+          card.style.filter = 'none';
+        }
+      }
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
