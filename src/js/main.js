@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectModals();
   initCopyActions();
   initFilterTabs();
-  initStackedCardsScrollEffect();
+  initAutoProjectStacker();
 });
 
 /* --------------------------------------------------------------------------
@@ -383,38 +383,127 @@ function initFilterTabs() {
 }
 
 /* --------------------------------------------------------------------------
-   8. SCROLL-DRIVEN STACKED CARDS DYNAMICS
+   8. COMPACT AUTO-STACKING PROJECT DECK (MULTI-DIRECTIONAL PHYSICS)
    -------------------------------------------------------------------------- */
-function initStackedCardsScrollEffect() {
-  const cards = document.querySelectorAll('.visual-stack-card, .stacked-project-card');
-  if (!cards.length) return;
+function initAutoProjectStacker() {
+  const deck = document.getElementById('auto-stack-deck');
+  if (!deck) return;
 
-  const handleScroll = () => {
-    const navbarHeight = 90;
+  const items = Array.from(deck.querySelectorAll('.auto-stack-item'));
+  const dotsContainer = document.getElementById('auto-stack-dots');
+  const prevBtn = document.getElementById('auto-stack-prev');
+  const nextBtn = document.getElementById('auto-stack-next');
+  if (!items.length) return;
 
-    cards.forEach((card, index) => {
-      const rect = card.getBoundingClientRect();
-      const nextCard = cards[index + 1];
+  const total = items.length;
+  let currentIndex = 0;
+  let timer = null;
+  const intervalMs = 2800;
 
-      if (nextCard) {
-        const nextRect = nextCard.getBoundingClientRect();
-        // If next card is sliding over current card
-        const overlap = Math.max(0, rect.bottom - nextRect.top);
-        if (overlap > 0 && nextRect.top <= (navbarHeight + 120)) {
-          const progress = Math.min(1, overlap / rect.height);
-          const scale = 1 - (progress * 0.05);
-          const brightness = 1 - (progress * 0.08);
-          card.style.transform = `scale(${scale})`;
-          card.style.filter = `brightness(${brightness})`;
-        } else {
-          card.style.transform = 'scale(1)';
-          card.style.filter = 'none';
-        }
+  // Multi-directional trajectory classes (charidik theke asbe)
+  const directions = ['dir-tl', 'dir-tr', 'dir-r', 'dir-br', 'dir-b', 'dir-bl', 'dir-l', 'dir-t', 'dir-tr', 'dir-bl'];
+
+  // Build dots
+  if (dotsContainer) {
+    dotsContainer.innerHTML = '';
+    items.forEach((_, idx) => {
+      const dot = document.createElement('div');
+      dot.className = `auto-stack-dot ${idx === 0 ? 'active' : ''}`;
+      dot.addEventListener('click', () => {
+        currentIndex = idx;
+        updateDeck();
+        resetTimer();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateDeck() {
+    items.forEach((item, idx) => {
+      // Remove previous position and direction classes
+      item.classList.remove('card-pos-0', 'card-pos-1', 'card-pos-2', 'card-pos-3', 'dir-tl', 'dir-tr', 'dir-r', 'dir-br', 'dir-b', 'dir-bl', 'dir-l', 'dir-t', 'card-hidden');
+
+      const relativeIndex = (idx - currentIndex + total) % total;
+      const dirClass = directions[idx % directions.length];
+
+      if (relativeIndex === 0) {
+        item.classList.add('card-pos-0');
+      } else if (relativeIndex === 1) {
+        item.classList.add('card-pos-1');
+      } else if (relativeIndex === 2) {
+        item.classList.add('card-pos-2');
+      } else if (relativeIndex === 3) {
+        item.classList.add('card-pos-3');
+      } else {
+        item.classList.add(dirClass);
       }
     });
-  };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
+    // Update dots
+    if (dotsContainer) {
+      const dots = dotsContainer.querySelectorAll('.auto-stack-dot');
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentIndex);
+      });
+    }
+  }
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % total;
+    updateDeck();
+  }
+
+  function prevCard() {
+    currentIndex = (currentIndex - 1 + total) % total;
+    updateDeck();
+  }
+
+  function startTimer() {
+    stopTimer();
+    timer = setInterval(nextCard, intervalMs);
+  }
+
+  function stopTimer() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  function resetTimer() {
+    startTimer();
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      nextCard();
+      resetTimer();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      prevCard();
+      resetTimer();
+    });
+  }
+
+  // Click on active card to advance
+  deck.addEventListener('click', (e) => {
+    const card = e.target.closest('.auto-stack-item');
+    if (card && card.classList.contains('card-pos-0')) {
+      nextCard();
+      resetTimer();
+    }
+  });
+
+  // Pause auto-stacking on hover
+  deck.addEventListener('mouseenter', stopTimer);
+  deck.addEventListener('mouseleave', startTimer);
+
+  // Initialize
+  updateDeck();
+  startTimer();
 }
 
 
