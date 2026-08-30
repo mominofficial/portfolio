@@ -16,6 +16,8 @@ html {
   text-rendering: optimizeLegibility;
   background-color: var(--bg-cream);
   color: var(--text-dark);
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
