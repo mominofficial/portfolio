@@ -169,3 +169,9 @@ This document preserves all user requirements, design guidelines, prompts, proje
 - **Full Branding Preserved**: The complete Branding & Creative solutions remain accessible in the top Work Categories grid and on `works.html?filter=branding`.
 - **Build & Deploy**: Re-compiled with Vite (0 errors), published to `gh-pages`, and pushed to `origin/main`.
 
+### Prompt 11: Comprehensive Image Fit & Aspect-Ratio Across All Devices
+- **Fixed Squeezed Card Images**: Changed `.compact-card-media` from fixed `height: 165px` to responsive `aspect-ratio: 16 / 9 !important; width: 100%; height: auto;`. On desktop, tablet, and mobile, graphics (like Coco Beans, Royal Hair Wigs, Modeflo, etc.) naturally fit their full 16:9 canvas without top/bottom cropping.
+- **Removed Height Caps on Project Images**: Removed `max-height: 225px;` from `.project-media-wrap` and enforced `aspect-ratio: 16 / 9 !important; object-fit: cover; object-position: center center;` on all cards across `index.html` and `works.html`.
+- **Modal Image Presentation**: Updated `.modal-img` to `object-fit: contain; max-height: 380px;` so full screenshots and case study mockups are displayed without edge clipping.
+- **Build & Deploy**: Built clean production bundle and deployed live to `gh-pages` and pushed to `origin/main`.
+
