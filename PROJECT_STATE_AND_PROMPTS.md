@@ -68,6 +68,12 @@ This document preserves all user requirements, design guidelines, prompts, proje
 > Add services 07 (Social Media Management & Strategy), 08 (AI Video Creation & Creative Content), and 09 (E-Commerce Product Research) across homepage and services page.
 > Update Pricing Packages to include these deliverables.
 
+### Prompt 7: SMM Filtering Fix, Homepage Featured Projects, and Title Consolidation
+> 1. Fix Works page filtering: The Social Media Management section (`#social-media-management`) must ONLY be visible when 'All Projects' or 'Social Media' tabs are active. For all other filters (Shopify, GMC, Branding, Apps, Webdev, Growth, AI Content), hide the SMM section.
+> 2. Add Featured Projects to Homepage: Right after Work Categories, add a dedicated section showcasing selected Shopify projects (Modeflo, Caspier, Zalivia) and selected Social Media Management projects (Coco Beans YouTube, Royal Hair Wigs Facebook, LeadLux Agency).
+> 3. Standardize main titles & roles across all pages to: "Shopify Developer, Full-Stack Developer & Digital Marketer".
+> 4. Add an About Spotlight section right above Work Categories (under Stats) with a prominent button: "See About Me in Detail" linking to `about.html`.
+
 ---
 
 ## 3. Project Roster Across All Categories

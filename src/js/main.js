@@ -454,7 +454,7 @@ export function showToast(message) {
 function initFilterTabs() {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card[data-category]');
-  if (!filterBtns.length || !projectCards.length) return;
+  const smmSection = document.getElementById('social-media-management');
 
   function applyFilter(filter) {
     projectCards.forEach(card => {
@@ -466,6 +466,15 @@ function initFilterTabs() {
         card.style.display = 'none';
       }
     });
+
+    // Social Media Management section MUST ONLY be visible in 'all' or 'social' filter
+    if (smmSection) {
+      if (filter === 'all' || filter === 'social') {
+        smmSection.style.display = 'block';
+      } else {
+        smmSection.style.display = 'none';
+      }
+    }
   }
 
   filterBtns.forEach(btn => {
