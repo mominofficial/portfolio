@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCopyActions();
   initFilterTabs();
   initAutoProjectStacker();
+  initCategoryPills();
 });
 
 /* --------------------------------------------------------------------------
@@ -248,9 +249,65 @@ function initProjectModals() {
       }
     }
 
-    // Case metrics / Problem-Strategy-Result / Creative Breakdown
+    // Case metrics / Problem-Strategy-Result / Creative Breakdown / SMM Research
     if (modalCompliance && modalCaseSection) {
-      if (proj.role || proj.creativeWork || (proj.overview && proj.overview !== proj.description)) {
+      if (proj.researchStrategy) {
+        let html = `
+          <div class="modal-smm-meta">
+            <div class="modal-smm-item"><strong>Client / Project</strong><span>${proj.clientName || proj.title}</span></div>
+            <div class="modal-smm-item"><strong>Platform</strong><span>${proj.platform || 'Social Media'}</span></div>
+            <div class="modal-smm-item"><strong>My Role</strong><span>${proj.role || 'Social Media Manager'}</span></div>
+            <div class="modal-smm-item"><strong>Project Type</strong><span>${proj.projectType || 'Page Management'}</span></div>
+          </div>
+          ${proj.objective ? `<div class="case-item"><strong class="case-label">Project Objective:</strong><p>${proj.objective}</p></div>` : ''}
+          ${proj.responsibilities && proj.responsibilities.length ? `
+            <div class="case-item">
+              <strong class="case-label">Main Responsibilities:</strong>
+              <ul style="margin: 0.5rem 0 0 1.2rem; line-height: 1.6; color: var(--text-dark-muted); font-size: 0.9rem;">
+                ${proj.responsibilities.map(r => `<li>${r}</li>`).join('')}
+              </ul>
+            </div>
+          ` : ''}
+          <div class="case-item">
+            <strong class="case-label">Research &amp; Content Strategy:</strong>
+            <div class="modal-smm-tags">
+              <span class="modal-smm-tag">Content Research</span>
+              <span class="modal-smm-tag">Title Research</span>
+              <span class="modal-smm-tag">Description Research</span>
+              ${(proj.serviceTags || []).filter(t => !['Content Research', 'Title Research', 'Description Research'].includes(t)).map(t => `<span class="smm-tag-chip">${t}</span>`).join('')}
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.75rem; font-size: 0.92rem; line-height: 1.6; color: var(--text-dark-muted);">
+              <div><strong style="color: var(--text-dark);">• Content Research:</strong> ${proj.researchStrategy.contentResearch}</div>
+              <div><strong style="color: var(--text-dark);">• Title Research:</strong> ${proj.researchStrategy.titleResearch}</div>
+              <div><strong style="color: var(--text-dark);">• Description Research:</strong> ${proj.researchStrategy.descriptionResearch}</div>
+              ${proj.researchStrategy.keywordHashtagResearch ? `<div><strong style="color: var(--text-dark);">• Keyword &amp; Hashtag Research:</strong> ${proj.researchStrategy.keywordHashtagResearch}</div>` : ''}
+              ${proj.researchStrategy.competitorResearch ? `<div><strong style="color: var(--text-dark);">• Competitor &amp; Market Research:</strong> ${proj.researchStrategy.competitorResearch}</div>` : ''}
+            </div>
+          </div>
+          ${proj.workflow ? `
+            <div class="case-item">
+              <strong class="case-label">Project Workflow:</strong>
+              <div class="modal-workflow-steps">
+                <div class="modal-workflow-step"><strong>1. Research</strong><p>${proj.workflow.research}</p></div>
+                <div class="modal-workflow-step"><strong>2. Plan</strong><p>${proj.workflow.plan}</p></div>
+                <div class="modal-workflow-step"><strong>3. Design</strong><p>${proj.workflow.design}</p></div>
+                <div class="modal-workflow-step"><strong>4. Produce</strong><p>${proj.workflow.produce}</p></div>
+                <div class="modal-workflow-step"><strong>5. Publish</strong><p>${proj.workflow.publish}</p></div>
+                <div class="modal-workflow-step"><strong>6. Manage</strong><p>${proj.workflow.manage}</p></div>
+              </div>
+            </div>
+          ` : ''}
+          ${proj.caseStudySummary ? `
+            <div class="case-item">
+              <strong class="case-label">Case Study Summary:</strong>
+              <p>${proj.caseStudySummary}</p>
+            </div>
+          ` : ''}
+        `;
+        modalCompliance.innerHTML = html;
+        if (modalCaseHeading) modalCaseHeading.textContent = 'Social Media Management — In-Depth Case Study';
+        modalCaseSection.style.display = 'block';
+      } else if (proj.role || proj.creativeWork || (proj.overview && proj.overview !== proj.description)) {
         let html = '';
         if (proj.overview && proj.overview !== proj.description) {
           html += `<div class="case-item"><strong class="case-label">Short Project Overview:</strong><p>${proj.overview}</p></div>`;
@@ -286,14 +343,20 @@ function initProjectModals() {
       if (proj.url) {
         modalLiveBtn.href = proj.url;
         modalLiveBtn.style.display = 'inline-flex';
+        modalLiveBtn.target = '_blank';
+        modalLiveBtn.rel = 'noopener noreferrer';
         const spanText = modalLiveBtn.querySelector('span:first-child');
         if (spanText) {
           if (proj.linkLabel) {
             spanText.textContent = proj.linkLabel;
+          } else if (proj.platform === 'YouTube' || proj.url.includes('youtube.com')) {
+            spanText.textContent = 'View Live YouTube Channel';
+          } else if (proj.platform === 'Facebook' || proj.url.includes('facebook.com')) {
+            spanText.textContent = 'View Live Facebook Page';
+          } else if (proj.platform === 'Instagram' || proj.url.includes('instagram.com')) {
+            spanText.textContent = 'View Live Instagram Profile';
           } else if (proj.category === 'app' || proj.id === 'fair-prices') {
             spanText.textContent = 'Download APK (Android)';
-          } else if (proj.url.includes('youtube.com')) {
-            spanText.textContent = 'Watch on YouTube';
           } else if (proj.url.includes('drive.google.com')) {
             spanText.textContent = 'View in Google Drive';
           } else {
@@ -309,6 +372,8 @@ function initProjectModals() {
       if (proj.githubUrl) {
         modalGithubBtn.href = proj.githubUrl;
         modalGithubBtn.style.display = 'inline-flex';
+        modalGithubBtn.target = '_blank';
+        modalGithubBtn.rel = 'noopener noreferrer';
       } else {
         modalGithubBtn.style.display = 'none';
       }
@@ -391,21 +456,100 @@ function initFilterTabs() {
   const projectCards = document.querySelectorAll('.project-card[data-category]');
   if (!filterBtns.length || !projectCards.length) return;
 
+  function applyFilter(filter) {
+    projectCards.forEach(card => {
+      const cats = (card.getAttribute('data-category') || '').trim().split(/\s+/);
+      if (filter === 'all' || cats.includes(filter)) {
+        card.style.display = 'flex';
+        card.classList.add('fade-in-up', 'visible');
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
       const filter = btn.getAttribute('data-filter');
-      projectCards.forEach(card => {
+      applyFilter(filter);
+
+      if (filter === 'social') {
+        const smmSection = document.getElementById('social-media-management');
+        if (smmSection) {
+          setTimeout(() => {
+            smmSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 80);
+        }
+      }
+    });
+  });
+
+  // Auto-select filter if URL parameter is present (e.g. ?filter=social or ?filter=branding)
+  const urlParams = new URLSearchParams(window.location.search);
+  const filterParam = urlParams.get('filter');
+  if (filterParam) {
+    const matchingBtn = Array.from(filterBtns).find(b => b.getAttribute('data-filter') === filterParam);
+    if (matchingBtn) {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      matchingBtn.classList.add('active');
+      applyFilter(filterParam);
+    }
+  }
+
+  // If directly navigating to #social-media-management or ?filter=social, scroll smoothly
+  if (window.location.hash === '#social-media-management' || filterParam === 'social') {
+    const smmSection = document.getElementById('social-media-management');
+    if (smmSection) {
+      setTimeout(() => {
+        smmSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7B. HOMEPAGE CATEGORY PILLS INTERACTION
+   -------------------------------------------------------------------------- */
+function initCategoryPills() {
+  const pillContainer = document.getElementById('category-pills');
+  if (!pillContainer) return;
+
+  const pillBtns = pillContainer.querySelectorAll('.category-pill-btn');
+  const categoryCards = document.querySelectorAll('.category-card[data-category]');
+  if (!pillBtns.length || !categoryCards.length) return;
+
+  pillBtns.forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetCat = pill.getAttribute('data-category');
+
+      // Update active pill
+      pillBtns.forEach(p => {
+        p.classList.remove('active');
+        p.setAttribute('aria-selected', 'false');
+      });
+      pill.classList.add('active');
+      pill.setAttribute('aria-selected', 'true');
+
+      // Highlight and scroll to matching card
+      categoryCards.forEach(card => {
         const cat = card.getAttribute('data-category');
-        if (filter === 'all' || cat === filter) {
-          card.style.display = 'flex';
-          card.classList.add('fade-in-up', 'visible');
+        if (cat === targetCat) {
+          card.classList.add('highlighted');
+          card.classList.remove('dimmed');
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         } else {
-          card.style.display = 'none';
+          card.classList.remove('highlighted');
+          card.classList.add('dimmed');
         }
       });
+
+      // Clear dimmed after 3 seconds
+      setTimeout(() => {
+        categoryCards.forEach(c => c.classList.remove('dimmed'));
+      }, 3000);
     });
   });
 }
