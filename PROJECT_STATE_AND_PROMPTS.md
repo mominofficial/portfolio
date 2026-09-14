@@ -160,8 +160,12 @@ This document preserves all user requirements, design guidelines, prompts, proje
 - **Capabilities & Bio Narrative**: Enriched hero subtext, positioning bullets, `about.html`, and `services.html` with explicit mentions of managing social media accounts from scratch, brand audience engagement, promotional poster design, social post design, UGC video ads, and e-commerce product design.
 - **Mobile Responsive Polish**: Added 2-column `stats-grid` on tablet/mobile, 1-column `compact-projects-grid`, mobile-friendly card paddings, and font clamp scaling.
 
-### Prompt 9: Platform Badge Pill Removal
-- **Badge Removal**: Removed distracting bright red/blue platform badge pills (`YOUTUBE`, `FACEBOOK`, `B2B SOCIAL`, `INSTAGRAM`) from all SMM project cards in `works.html` and compact cards in `index.html`.
-- **CSS Defense**: Added `.smm-platform-badge { display: none !important; }` to `src/styles/components.css`.
-- **Build & Deploy**: Re-compiled with Vite (0 errors) and deployed to `gh-pages` and `main`.
+### Prompt 10: Deduplication of Homepage Branding Section
+- **Removed Duplicate Block**: Removed the duplicate `BRANDING & CREATIVE ASSETS` block (featuring RoyLux & UGC video ads) from `#featured-projects` on `index.html`.
+- **Streamlined Compact Showcase**: The homepage showcase now presents 3 clean, essential disciplines:
+  1. Shopify Storefronts (Modeflo & Caspier)
+  2. Social Media Management (Coco Beans & Royal Hair Wigs)
+  3. Web Applications & Tools (Fair Prices & DeshBrief)
+- **Full Branding Preserved**: The complete Branding & Creative solutions remain accessible in the top Work Categories grid and on `works.html?filter=branding`.
+- **Build & Deploy**: Re-compiled with Vite (0 errors), published to `gh-pages`, and pushed to `origin/main`.
 
