@@ -3047,10 +3047,13 @@ html.dark-theme .footer a:hover {
   border-color: var(--accent-gold);
 }
 
-.branding-media-wrap {
+.branding-media-wrap,
+.project-card[data-category="branding"] .project-media-wrap,
+.square-media-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1 / 1 !important;
+  height: auto;
   overflow: hidden;
   background-color: #0E1817;
   border-bottom: 1px solid var(--border-cream);
@@ -3059,17 +3062,40 @@ html.dark-theme .footer a:hover {
   justify-content: center;
 }
 
-.branding-card-img {
+.branding-card-img,
+.project-card[data-category="branding"] .project-img,
+.square-media-wrap img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1 / 1 !important;
   object-fit: cover;
   object-position: center center;
   display: block;
   transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.branding-card:hover .branding-card-img {
+.branding-card:hover .branding-card-img,
+.project-card[data-category="branding"]:hover .project-img {
   transform: scale(1.04);
+}
+
+/* Modal Square Presentation for 1:1 Project Covers */
+.modal-backdrop.modal-square-project .modal-img-wrap {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  aspect-ratio: 1 / 1;
+  background-color: #0E1817;
+  border: 1px solid var(--border-cream);
+}
+
+.modal-backdrop.modal-square-project .modal-img {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .branding-hover-overlay {

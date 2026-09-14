@@ -198,6 +198,8 @@ function initProjectModals() {
       modalImg.src = proj.image || '';
       modalImg.alt = proj.title || 'Project Preview';
     }
+    const isSquare = proj.category === 'branding' || proj.aspectRatio === 'square';
+    modal.classList.toggle('modal-square-project', isSquare);
     if (modalTitle) modalTitle.textContent = proj.title || '';
     if (modalTagline) {
       if (proj.tagline) {
