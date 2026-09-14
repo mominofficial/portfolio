@@ -76,6 +76,45 @@ export const services = [
     ],
     clientType: "Service providers, clinics, salons & B2B enterprises",
     cta: "Generate Leads"
+  },
+  {
+    number: "07",
+    title: "Social Media Management & Strategy",
+    shortDesc: "End-to-end multi-platform social media growth across YouTube, Facebook, TikTok, and Instagram — from content calendar and creative design to SEO metadata and audience engagement.",
+    deliverables: [
+      "Multi-platform content calendar & aesthetic curation",
+      "YouTube channel management, thumbnail SEO & tags",
+      "Facebook page optimization & high-converting cover design",
+      "Community engagement, post scheduling & monthly reporting"
+    ],
+    clientType: "E-commerce brands, creators, salons & local businesses",
+    cta: "Manage My Socials"
+  },
+  {
+    number: "08",
+    title: "AI Video Creation & Creative Content",
+    shortDesc: "High-converting AI-generated product commercials, UGC-style promotional videos, cartoon storytelling animations, and engaging short-form reels engineered for high click-through rates.",
+    deliverables: [
+      "AI product promotional videos & lifelike voiceovers",
+      "UGC-style vertical videos for TikTok, Reels & Shorts",
+      "Animated cartoon videos & character storytelling",
+      "High-CTR thumbnail creation & ad creative variations"
+    ],
+    clientType: "D2C brands, dropshippers, YouTube channels & ad campaigns",
+    cta: "Create AI Videos"
+  },
+  {
+    number: "09",
+    title: "E-Commerce Product Research & Market Analysis",
+    shortDesc: "Data-driven winning product discovery, competitor ad intelligence, profit margin modeling, supplier vetting, and trend forecasting to ensure predictable store profitability.",
+    deliverables: [
+      "Winning product validation with competitor ad analytics",
+      "Profit margin forecasting & cost-per-acquisition analysis",
+      "Supplier reliability vetting & shipping speed validation",
+      "Niche saturation & search demand trend intelligence"
+    ],
+    clientType: "Shopify store owners, dropshippers & new product launches",
+    cta: "Research Products"
   }
 ];
 
@@ -90,6 +129,7 @@ export const packages = [
     features: [
       "Full Shopify / Website Technical Audit",
       "Google Merchant Center Compliance Check",
+      "Social Media Profile & Content Health Diagnostic",
       "Conversion & UX Breakdown Report",
       "Speed & Core Web Vitals Assessment",
       "Actionable 7-Day Fix Checklist",
@@ -103,14 +143,14 @@ export const packages = [
     price: "$499+",
     period: "custom scope",
     popular: true,
-    desc: "For businesses that need a stronger Shopify / web presence and conversion-focused improvements.",
+    desc: "For businesses that need a stronger Shopify / web presence, GMC approval, and high-converting creative assets.",
     features: [
       "Complete Shopify Store Setup or Custom Rebuild",
-      "GMC-Approved Product Architecture",
-      "High-Converting Hero & Collection Pages",
+      "100% GMC-Approved Product Architecture & Policy Clearance",
+      "High-Converting Hero & Collection Page Design",
+      "5x Custom Social Media Creatives & AI Product Videos",
       "Mobile Performance & Speed Optimization",
       "Trust Badges & Social Proof Integrations",
-      "Google Shopping Feed Initialization",
       "14 Days Post-Launch Support"
     ],
     cta: "Get Growth Build"
@@ -126,9 +166,11 @@ export const packages = [
       "Full Custom Theme & Store Architecture",
       "Complete Google Merchant Center Setup & Policy Clearance",
       "Google Shopping & Ads Campaign Launch",
+      "Dedicated Monthly Social Media Management (Content & SEO)",
+      "10x High-Converting AI Video Commercials & UGC Ads",
+      "In-Depth Winning Product Research & Competitor Intel",
       "B2B Lead Generation & WhatsApp Funnel",
       "Advanced SEO & Structured Data Schemas",
-      "Comprehensive Analytics & Pixel Setup",
       "30 Days Priority Technical Support"
     ],
     cta: "Start Scale Project"

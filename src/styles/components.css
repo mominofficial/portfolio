@@ -933,7 +933,7 @@
    -------------------------------------------------------------------------- */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;
 }
 
@@ -954,30 +954,21 @@
   border-color: var(--border-cream-dark);
 }
 
-.project-card.featured-large {
-  grid-column: span 8;
-}
-
-.project-card.featured-side {
-  grid-column: span 4;
-}
-
-.project-card.standard {
-  grid-column: span 4;
-}
-
+.project-card.featured-large,
+.project-card.featured-side,
+.project-card.standard,
 .project-card.full-width {
-  grid-column: span 12;
+  grid-column: auto;
 }
 
-/* Perfect 16:9 Image Container so no laptop mockups get clipped */
+/* Perfect 16:9 Image Container with controlled compact height (Minimalistic & Eye-Catching) */
 .project-media-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9.5;
-  height: auto;
+  aspect-ratio: 16 / 9 !important;
+  max-height: 225px;
   overflow: hidden;
-  background-color: #F0EAE1;
+  background-color: #0A2625;
   border-bottom: 1px solid var(--border-cream);
   display: flex;
   align-items: center;
@@ -1095,16 +1086,32 @@
 /* Responsive Case Study Layouts */
 .gmc-card-body-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: 2rem;
   align-items: center;
 }
 
+.gmc-card-body-grid img {
+  max-height: 240px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-cream);
+}
+
 .gmc-sub-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.75rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   margin-top: 1.75rem;
+}
+
+.gmc-sub-grid .project-card {
+  grid-column: auto !important;
+  max-width: 100%;
 }
 
 .full-width-inner {
