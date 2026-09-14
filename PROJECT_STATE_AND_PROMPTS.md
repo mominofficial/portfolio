@@ -143,3 +143,25 @@ This document preserves all user requirements, design guidelines, prompts, proje
   - B2B Lead Generation & Automated WhatsApp Outreach Funnel
   - Advanced SEO & Structured Data Schemas
   - 30 Days Priority Technical & Growth Support
+
+---
+
+## 6. Prompt History & Implementation Log
+
+### Prompt 8: Mobile Responsiveness, Hero 1-Line Name, Compact 2-per-category Homepage Showcase & Capability Enrichment
+- **Hero Typographic Identity Fix**: Restructured `.hero-typographic-identity` into `.hero-name-header` + `.hero-big-name` with `white-space: nowrap !important;` and stacked `.hero-role-tag` underneath to prevent "MD MOMIN ALI" from wrapping onto 3 lines.
+- **Underline Collision Fix**: Adjusted `.hero-headline .highlight::after` `bottom: -2px;` to avoid intersecting with descenders of letters (e.g. 'g').
+- **Left Hero CTA Deduplication**: Restored left CTA buttons to `Explore Portfolio` and `Let's Work Together`, retaining `See About Me in Detail` exclusively on the visual card and About spotlight.
+- **Compact Categorized Homepage Showcase**: Replaced bulky 6-card display with sleek, 2-project-per-category showcase:
+  - *Shopify*: Modeflo & Caspier
+  - *Social Media*: Coco Beans & Royal Hair Wigs
+  - *Branding & AI Creative*: RoyLux & UGC Product Video Ads
+  - *Web Apps & Tools*: Fair Prices & DeshBrief
+- **Capabilities & Bio Narrative**: Enriched hero subtext, positioning bullets, `about.html`, and `services.html` with explicit mentions of managing social media accounts from scratch, brand audience engagement, promotional poster design, social post design, UGC video ads, and e-commerce product design.
+- **Mobile Responsive Polish**: Added 2-column `stats-grid` on tablet/mobile, 1-column `compact-projects-grid`, mobile-friendly card paddings, and font clamp scaling.
+
+### Prompt 9: Platform Badge Pill Removal
+- **Badge Removal**: Removed distracting bright red/blue platform badge pills (`YOUTUBE`, `FACEBOOK`, `B2B SOCIAL`, `INSTAGRAM`) from all SMM project cards in `works.html` and compact cards in `index.html`.
+- **CSS Defense**: Added `.smm-platform-badge { display: none !important; }` to `src/styles/components.css`.
+- **Build & Deploy**: Re-compiled with Vite (0 errors) and deployed to `gh-pages` and `main`.
+
