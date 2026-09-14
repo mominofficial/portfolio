@@ -258,5 +258,74 @@ export const projects = [
     image: "leadgen-data.jpg",
     description: "Targeted lead generation, data mining, and outreach campaigns for beauty salons, hair wig clinics, and regional B2B clients.",
     deliverables: ["Verified Contact Data Extraction", "WhatsApp API Outreach Pipeline", "Review & Rating Analytics", "Direct Client Booking Pipeline"]
+  },
+
+  // Digital Marketing: Branding & Creative Content
+  {
+    id: "roylux-fashion-branding",
+    title: "RoyLux — Fashion Brand Content",
+    tagline: "Fashion Brand Content & AI Product Promotional Video Assets",
+    category: "branding",
+    categoryLabel: "Branding • Social Media • AI Product Promotion",
+    featured: true,
+    gridType: "standard",
+    image: "roylux-branding.jpg",
+    url: "https://drive.google.com/drive/folders/1fY4bOC58ymySwdzXF2aSjFkJvnM11teP?usp=drive_link",
+    linkLabel: "View Drive Assets & Posts",
+    role: "Creative Content Specialist & Brand Strategist",
+    overview: "Created lifestyle-focused promotional content and AI-assisted social media videos for RoyLux, a fashion brand featuring women’s clothing, shoes, bags, jeans, and winter wear.",
+    description: "Created lifestyle-focused promotional content and AI-assisted social media videos for RoyLux, a fashion brand featuring women’s clothing, shoes, bags, jeans, and winter wear.",
+    deliverables: [
+      "Brand Content",
+      "Social Media Creative",
+      "AI Product Videos",
+      "Fashion Marketing"
+    ],
+    creativeWork: "Developed high-fashion lifestyle social media visual layouts, AI-assisted video assets, seasonal campaign creative direction (Winter Collection, Everyday Wear), and cohesive brand styling centered around 'Style, Comfort, Confidence'."
+  },
+  {
+    id: "ugc-product-videos",
+    title: "UGC — Product Promotion Videos",
+    tagline: "High-Converting UGC-Style Video Creatives & Social Promotions",
+    category: "branding",
+    categoryLabel: "UGC • Short-Form Video • Product Marketing",
+    featured: true,
+    gridType: "standard",
+    image: "ugc-promotion.jpg",
+    url: "https://drive.google.com/drive/folders/1JRN59K87096YAHE8qs-YvEWarHIGC4Qc?usp=sharing",
+    linkLabel: "View UGC Video Drive",
+    role: "UGC Video Creator & Content Strategist",
+    overview: "Created engaging UGC-style short videos designed to showcase products naturally and attractively across social media platforms.",
+    description: "Created engaging UGC-style short videos designed to showcase products naturally and attractively across social media platforms.",
+    deliverables: [
+      "UGC Content",
+      "Product Promotion",
+      "Short-Form Video",
+      "Social Media Marketing"
+    ],
+    creativeWork: "Produced authentic, high-impact vertical short-form promotional content for skincare, fashion hauls, footwear showcases, and accessories formatted specifically for TikTok, Instagram Reels, YouTube Shorts, and Facebook Reels."
+  },
+  {
+    id: "cartoon-animated-content",
+    title: "Cartoon Video — Animated Brand Content",
+    tagline: "Character Animation, AI Storytelling & Branded Digital Episodes",
+    category: "branding",
+    categoryLabel: "Creative Content • AI Animation • Storytelling",
+    featured: true,
+    gridType: "standard",
+    image: "cartoon-content.jpg",
+    url: "https://www.youtube.com/@cocbeans",
+    linkLabel: "Watch on YouTube (@cocbeans)",
+    role: "Animation Creator & Visual Storyteller",
+    overview: "Created engaging animated and cartoon videos with custom characters, storytelling, and kid-friendly visual content for digital platforms and branded content.",
+    description: "Created engaging animated and cartoon videos with custom characters, storytelling, and kid-friendly visual content for digital platforms and branded content.",
+    deliverables: [
+      "AI Animation",
+      "Character Content",
+      "Storytelling",
+      "YouTube Content"
+    ],
+    creativeWork: "Engineered 4K high-quality animated episodes, custom character concepts, educational narratives (School Picnic, Family Stories, Animal Friends), and digital brand storytelling distributed through YouTube channels and social video platforms."
   }
 ];
+

@@ -2987,5 +2987,298 @@ html.dark-theme .footer a:hover {
   color: var(--accent-gold);
 }
 
+/* --------------------------------------------------------------------------
+   DIGITAL MARKETING: BRANDING & CREATIVE CONTENT STYLES
+   -------------------------------------------------------------------------- */
+.branding-section {
+  background-color: var(--bg-offwhite);
+  border-top: 1px solid var(--border-cream);
+  border-bottom: 1px solid var(--border-cream);
+  position: relative;
+}
 
+.branding-intro-block {
+  margin-top: 1rem;
+  max-width: 760px;
+}
 
+.branding-intro-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--text-dark);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.6rem;
+}
+
+.branding-intro-desc {
+  font-size: 1.025rem;
+  color: var(--text-dark-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.branding-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2.75rem;
+}
+
+.branding-card {
+  background-color: var(--bg-cream);
+  border: 1px solid var(--border-cream);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+}
+
+.branding-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-gold);
+}
+
+.branding-media-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #0E1817;
+  border-bottom: 1px solid var(--border-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.branding-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.branding-card:hover .branding-card-img {
+  transform: scale(1.04);
+}
+
+.branding-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10, 38, 37, 0.15) 0%, rgba(10, 38, 37, 0.72) 100%);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.branding-card:hover .branding-hover-overlay {
+  opacity: 1;
+}
+
+.branding-hover-badge {
+  background-color: var(--accent-gold);
+  color: #0A2625;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 1.35rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(12px);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.branding-card:hover .branding-hover-badge {
+  transform: translateY(0);
+}
+
+.branding-card-body {
+  padding: clamp(1.25rem, 2vw, 1.65rem);
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  gap: 0.75rem;
+}
+
+.branding-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.branding-category-tag {
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.branding-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.28rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-dark);
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.branding-card-desc {
+  font-size: 0.925rem;
+  color: var(--text-dark-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.branding-tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.branding-tag-chip {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--accent-badge-bg);
+  color: var(--accent-badge-text);
+  border: 1px solid var(--border-cream);
+  letter-spacing: 0.01em;
+}
+
+.branding-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-cream);
+  margin-top: 0.5rem;
+}
+
+.branding-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--bg-teal-dark);
+  padding: 0;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.branding-card:hover .branding-view-btn {
+  color: var(--accent-gold);
+}
+
+.branding-view-btn .arrow-icon {
+  transition: transform var(--transition-fast);
+}
+
+.branding-card:hover .branding-view-btn .arrow-icon {
+  transform: translateX(3px);
+}
+
+.branding-ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dark-muted);
+  transition: color var(--transition-fast);
+}
+
+.branding-ext-link:hover {
+  color: var(--bg-teal-dark);
+  text-decoration: underline;
+}
+
+/* Dark Theme Overrides for Branding */
+html.dark-theme .branding-section {
+  background-color: var(--bg-cream);
+  border-color: var(--border-cream);
+}
+
+html.dark-theme .branding-intro-quote {
+  color: #FFFFFF;
+}
+
+html.dark-theme .branding-card {
+  background-color: var(--bg-offwhite);
+  border-color: var(--border-cream);
+}
+
+html.dark-theme .branding-card-title {
+  color: #FFFFFF;
+}
+
+html.dark-theme .branding-card-desc {
+  color: var(--text-dark-muted);
+}
+
+html.dark-theme .branding-tag-chip {
+  background-color: var(--accent-badge-bg);
+  color: var(--accent-badge-text);
+  border-color: var(--border-cream);
+}
+
+html.dark-theme .branding-view-btn {
+  color: var(--accent-gold);
+}
+
+html.dark-theme .branding-ext-link {
+  color: var(--text-dark-muted);
+}
+
+html.dark-theme .branding-ext-link:hover {
+  color: #FFFFFF;
+}
+
+/* Responsive Grid for Branding */
+@media (max-width: 992px) {
+  .branding-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .branding-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .branding-intro-block {
+    text-align: left;
+  }
+}

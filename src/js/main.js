@@ -234,15 +234,35 @@ function initProjectModals() {
           li.textContent = d;
           modalDeliverables.appendChild(li);
         });
-        if (modalDeliverablesSection) modalDeliverablesSection.style.display = 'block';
+        if (modalDeliverablesSection) {
+          const secTitle = modalDeliverablesSection.querySelector('.modal-section-title');
+          if (secTitle) {
+            secTitle.textContent = proj.category === 'branding' ? 'Services Provided' : 'Key Deliverables & Stack';
+          }
+          modalDeliverablesSection.style.display = 'block';
+        }
       } else {
         if (modalDeliverablesSection) modalDeliverablesSection.style.display = 'none';
       }
     }
 
-    // Case metrics / Problem-Strategy-Result / GMC Compliance
+    // Case metrics / Problem-Strategy-Result / Creative Breakdown
     if (modalCompliance && modalCaseSection) {
-      if (proj.problem || proj.strategy || proj.result) {
+      if (proj.role || proj.creativeWork || (proj.overview && proj.overview !== proj.description)) {
+        let html = '';
+        if (proj.overview && proj.overview !== proj.description) {
+          html += `<div class="case-item"><strong class="case-label">Short Project Overview:</strong><p>${proj.overview}</p></div>`;
+        }
+        if (proj.role) {
+          html += `<div class="case-item"><strong class="case-label">My Role:</strong><p>${proj.role}</p></div>`;
+        }
+        if (proj.creativeWork) {
+          html += `<div class="case-item"><strong class="case-label">Key Creative Work:</strong><p>${proj.creativeWork}</p></div>`;
+        }
+        modalCompliance.innerHTML = html;
+        if (modalCaseHeading) modalCaseHeading.textContent = 'Creative Overview & Role';
+        modalCaseSection.style.display = 'block';
+      } else if (proj.problem || proj.strategy || proj.result) {
         let html = '';
         if (proj.problem) html += `<div class="case-item"><strong class="case-label">Problem / Challenge:</strong><p>${proj.problem}</p></div>`;
         if (proj.strategy) html += `<div class="case-item"><strong class="case-label">Strategy & Implementation:</strong><p>${proj.strategy}</p></div>`;
@@ -266,8 +286,14 @@ function initProjectModals() {
         modalLiveBtn.style.display = 'inline-flex';
         const spanText = modalLiveBtn.querySelector('span:first-child');
         if (spanText) {
-          if (proj.category === 'app' || proj.id === 'fair-prices') {
+          if (proj.linkLabel) {
+            spanText.textContent = proj.linkLabel;
+          } else if (proj.category === 'app' || proj.id === 'fair-prices') {
             spanText.textContent = 'Download APK (Android)';
+          } else if (proj.url.includes('youtube.com')) {
+            spanText.textContent = 'Watch on YouTube';
+          } else if (proj.url.includes('drive.google.com')) {
+            spanText.textContent = 'View in Google Drive';
           } else {
             spanText.textContent = 'Open Live Website';
           }
