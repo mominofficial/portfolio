@@ -2538,9 +2538,12 @@ html.dark-theme .modal-case-content {
     white-space: nowrap;
   }
   .brand-sub {
-    font-size: 0.62rem;
-    letter-spacing: 0.03em;
+    font-size: 0.58rem;
+    letter-spacing: 0.02em;
     white-space: nowrap;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .mobile-toggle {
     display: flex;

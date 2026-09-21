@@ -1,6 +1,6 @@
 # MD Momin Ali — Premium Static Portfolio Website
 
-A high-end, 100% static portfolio website for **MD Momin Ali** (Shopify Developer • Full-Stack Engineer • Digital Marketer • Google Merchant Center Specialist) built with a Warm Cream & Deep Dark Teal visual identity derived from the **LeadLux** brand mark.
+A high-end, 100% static portfolio website for **MD Momin Ali** (Motion Designer • Video Editor • Shopify Developer • Digital Marketer • Google Merchant Center Specialist) built with a Warm Cream & Deep Dark Teal visual identity derived from the **LeadLux** brand mark.
 
 ---
 

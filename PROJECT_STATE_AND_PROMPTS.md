@@ -169,9 +169,15 @@ This document preserves all user requirements, design guidelines, prompts, proje
 - **Full Branding Preserved**: The complete Branding & Creative solutions remain accessible in the top Work Categories grid and on `works.html?filter=branding`.
 - **Build & Deploy**: Re-compiled with Vite (0 errors), published to `gh-pages`, and pushed to `origin/main`.
 
-### Prompt 11: Comprehensive Image Fit & Aspect-Ratio Across All Devices
-- **Fixed Squeezed Card Images**: Changed `.compact-card-media` from fixed `height: 165px` to responsive `aspect-ratio: 16 / 9 !important; width: 100%; height: auto;`. On desktop, tablet, and mobile, graphics (like Coco Beans, Royal Hair Wigs, Modeflo, etc.) naturally fit their full 16:9 canvas without top/bottom cropping.
-- **Removed Height Caps on Project Images**: Removed `max-height: 225px;` from `.project-media-wrap` and enforced `aspect-ratio: 16 / 9 !important; object-fit: cover; object-position: center center;` on all cards across `index.html` and `works.html`.
-- **Modal Image Presentation**: Updated `.modal-img` to `object-fit: contain; max-height: 380px;` so full screenshots and case study mockups are displayed without edge clipping.
-- **Build & Deploy**: Built clean production bundle and deployed live to `gh-pages` and pushed to `origin/main`.
+### Prompt 12: Motion Designer, Video Editor, Shopify Developer & Digital Marketer Repositioning
+- **User Request**: Reposition portfolio for applying to Motion Graphics / Motion Design positions. Add Motion Design, Video Editor, Shopify & Digital Marketer to the header, about section, and throughout all pages.
+- **Header & Navbar Brand**: Updated `<span class="brand-sub">` to `MOTION DESIGNER • VIDEO EDITOR • SHOPIFY • DIGITAL MARKETER` across all pages (`index.html`, `about.html`, `works.html`, `services.html`, `certifications.html`, `contact.html`).
+- **Responsive Layout Protection**: Updated `.brand-sub` CSS in `components.css` with responsive max-width and ellipsis constraints to prevent header overflow on narrow screens.
+- **Hero & Eyebrow**: Updated hero headline to `Motion Designer, Video Editor, Shopify & Digital Marketer` with dynamic subtext emphasizing motion design, commercial video editing, After Effects, kinetic typography, and UGC ads alongside Shopify & GMC.
+- **Hero Visual Card**: Updated role tag to `MOTION DESIGNER • VIDEO EDITOR • SHOPIFY • DIGITAL MARKETER` and eyebrow to `CREATIVE MOTION ENGINEER`.
+- **About Sections & Bio**:
+  - `index.html`: Core positioning updated to `Motion Designer • Video Editor • Shopify Developer • Digital Marketer`, with updated narrative highlighting the synergy between motion design, commercial video editing, CS engineering, and Shopify conversion.
+  - `about.html`: Updated bio, portrait card role, timeline (`Motion Designer, Video Editor & Shopify Specialist`), and expanded the creative skills box into `🎬 Motion Design & Video Editing` (After Effects, Premiere Pro, Motion Graphics, Keyframe Animation, Kinetic Typography, CapCut Pro, Sound Design, Color Grading).
+- **Global Footers & Meta Tags**: Standardized across all 6 pages with updated SEO titles, meta descriptions, and OpenGraph metadata.
+- **Data & Configuration**: Updated `src/data/profile.js` and `README.md`.
 

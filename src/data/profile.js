@@ -1,7 +1,7 @@
 export const profile = {
   name: "MD Momin Ali",
-  headline: "Shopify Developer • Full-Stack Engineer • Digital Marketer",
-  secondaryPositioning: "Google Merchant Center Specialist — I fix GMC suspensions and deliver GMC-approved Shopify stores.",
+  headline: "Motion Designer • Video Editor • Shopify Developer • Digital Marketer",
+  secondaryPositioning: "Motion Graphics, High-Retention Video Editing, Shopify Theme Development & GMC Specialist.",
   location: "Rajshahi, Bangladesh",
   status: "Open to Work",
   email: "232311005@vu.edu.bd",
@@ -41,17 +41,18 @@ export const profile = {
     }
   ],
   skills: {
+    motionAndVideo: ["Adobe After Effects", "Premiere Pro", "Motion Graphics", "Keyframing", "Kinetic Typography", "CapCut Pro", "UGC Video Ads", "Color Grading", "Sound Design"],
     development: ["HTML5", "CSS3 / Modern Layouts", "JavaScript (ES6+)", "React.js", "Node.js", "MongoDB", "SQL", "C / C++", "Python", "Flutter", "Git / GitHub Pages"],
     ecommerce: ["Shopify Liquid", "Theme Development", "Product Architecture", "Conversion Optimization", "Cart Optimization", "Trust Signals & Badges", "Custom Checkout Rules"],
     marketing: ["Google Ads", "Google Merchant Center (GMC)", "Misrepresentation Fixes", "Shopping Feeds", "Lead Generation & B2B Data", "WhatsApp Marketing", "Email Marketing", "Facebook / TikTok Ads"],
-    creative: ["Canva", "CapCut Pro Video Editing", "Social Media Design", "UI/UX Prototyping", "Store Banners"]
+    creative: ["Adobe After Effects", "Adobe Premiere Pro", "Canva Pro", "CapCut Pro Video Editing", "Social Media Design", "UI/UX Prototyping", "Store Banners"]
   },
   experience: [
     {
       period: "2024 — Present",
-      role: "Shopify Developer & GMC Specialist",
+      role: "Motion Designer, Video Editor & Shopify Specialist",
       company: "Freelance & Client Projects",
-      description: "Architecting high-converting Shopify stores, resolving complex Google Merchant Center suspensions (Misrepresentation, Untrustworthy Promotions), and managing Google Shopping feeds."
+      description: "Crafting dynamic motion graphics, commercial video ads, kinetic typography, and designing high-ticket e-commerce stores with 100% GMC policy compliance."
     },
     {
       period: "2023 — Present",
