@@ -181,3 +181,19 @@ This document preserves all user requirements, design guidelines, prompts, proje
 - **Global Footers & Meta Tags**: Standardized across all 6 pages with updated SEO titles, meta descriptions, and OpenGraph metadata.
 - **Data & Configuration**: Updated `src/data/profile.js` and `README.md`.
 
+### Prompt 13: Royal Hair Wigs Lead Creative Experience, 2+ Years Highlight & Services Enrichment
+- **User Request**: Add Motion Designer & Video Editing skills into services areas across the site; add current position at Royal Hair Wigs as Motion Designer, Video Editor & Social Media Poster Designer (October 2023 — Present); highlight 2+ Years Experience prominently on the homepage.
+- **Services Architecture (Homepage & Services Page)**:
+  - Updated Service 08 across `index.html` and `services.html` to: **Motion Design, Video Editing & Creative Commercials** (`id="motion-video"`).
+  - Enriched deliverables with After Effects motion graphics, Premiere Pro & CapCut Pro video editing, kinetic typography, promotional posters, and high-CTR UGC video ads.
+  - Updated pricing packages in `services.html` to include motion graphics, video commercials, and promotional posters.
+  - Synchronized `src/data/services.js`.
+- **Royal Hair Wigs Experience (Oct 2023 — Present)**:
+  - Added as primary featured professional role in the **Experience Timeline** on `about.html` and `src/data/profile.js`: *Motion Designer, Video Editor & Social Media Poster Designer at Royal Hair Wigs*.
+  - Updated portrait card on `about.html` with `💼 Experience: 2+ Years (Royal Hair Wigs since Oct 2023)`.
+- **Homepage 2+ Years Experience Integration**:
+  - Hero Badge: `2+ YEARS EXPERIENCE • AVAILABLE FOR WORK • RAJSHAHI, BD`.
+  - Stats Bar: `2+ Years Experience`, `19+ Projects Shipped`, `10+ Shopify Storefronts`, `100% Client Focus`.
+  - Hero Checklist: Added bullet highlighting 2+ years as Motion Designer, Video Editor & Poster Designer at Royal Hair Wigs (since Oct 2023).
+  - About Spotlight: Added `⭐ Experience: 2+ Years Professional Experience (Royal Hair Wigs, since Oct 2023)`.
+

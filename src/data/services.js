@@ -92,16 +92,16 @@ export const services = [
   },
   {
     number: "08",
-    title: "AI Video Creation & Creative Content",
-    shortDesc: "High-converting AI-generated product commercials, UGC-style promotional videos, cartoon storytelling animations, and engaging short-form reels engineered for high click-through rates.",
+    title: "Motion Design, Video Editing & Creative Commercials",
+    shortDesc: "High-retention motion graphics in Adobe After Effects, commercial video editing in Premiere Pro & CapCut Pro, kinetic typography, promotional poster designs, and viral short-form UGC ads engineered to scale brand presence.",
     deliverables: [
-      "AI product promotional videos & lifelike voiceovers",
-      "UGC-style vertical videos for TikTok, Reels & Shorts",
-      "Animated cartoon videos & character storytelling",
-      "High-CTR thumbnail creation & ad creative variations"
+      "After Effects motion graphics & keyframe animation",
+      "Commercial video editing for YouTube, Meta & TikTok",
+      "Kinetic typography, creative hooks & sound design",
+      "Social media promotional posters & visual ad variations"
     ],
-    clientType: "D2C brands, dropshippers, YouTube channels & ad campaigns",
-    cta: "Create AI Videos"
+    clientType: "E-commerce brands, YouTube creators, marketing agencies & advertisers",
+    cta: "Produce Videos"
   },
   {
     number: "09",

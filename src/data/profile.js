@@ -15,9 +15,9 @@ export const profile = {
     whatsapp: "https://wa.me/8801792872188"
   },
   stats: [
-    { number: "15+", label: "Projects Shipped" },
+    { number: "2+ Years", label: "Industry Experience" },
+    { number: "19+", label: "Projects Shipped" },
     { number: "10+", label: "Shopify Storefronts" },
-    { number: "2+", label: "Years Building" },
     { number: "100%", label: "Client Focus" }
   ],
   education: [
@@ -49,10 +49,16 @@ export const profile = {
   },
   experience: [
     {
+      period: "Oct 2023 — Present",
+      role: "Motion Designer, Video Editor & Social Media Poster Designer",
+      company: "Royal Hair Wigs",
+      description: "Leading commercial motion graphics in After Effects, high-converting video edits in Premiere Pro & CapCut Pro, kinetic typography, and promotional poster designs for Facebook and Instagram. Managing visual brand storytelling and high-engagement social advertising campaigns."
+    },
+    {
       period: "2024 — Present",
-      role: "Motion Designer, Video Editor & Shopify Specialist",
+      role: "Shopify Developer & GMC Specialist",
       company: "Freelance & Client Projects",
-      description: "Crafting dynamic motion graphics, commercial video ads, kinetic typography, and designing high-ticket e-commerce stores with 100% GMC policy compliance."
+      description: "Designing high-converting custom Liquid storefronts, resolving complex Google Merchant Center suspensions (Misrepresentation), and optimizing Google Shopping campaigns."
     },
     {
       period: "2023 — Present",
@@ -62,8 +68,8 @@ export const profile = {
     },
     {
       period: "2022 — 2024",
-      role: "Full-Stack Web Engineering Student",
-      company: "Varendra University & Programming Hero",
+      role: "Computer Science & Full-Stack Web Development",
+      company: "Varendra University (CGPA 3.93)",
       description: "Built robust web applications, algorithms, and micro-projects across C++, JavaScript, React, and RESTful web architectures."
     }
   ]
