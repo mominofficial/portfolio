@@ -87,6 +87,7 @@ momin-portfolio/
 ---
 
 ## 📞 Direct Contact
+- **Behance Portfolio**: [behance.net/mominofficial](https://www.behance.net/mominofficial)
 - **WhatsApp**: [+880 1792 872188](https://wa.me/8801792872188)
 - **Email**: [232311005@vu.edu.bd](mailto:232311005@vu.edu.bd)
 - **GitHub**: [github.com/mominofficial](https://github.com/mominofficial)

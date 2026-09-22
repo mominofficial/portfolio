@@ -8,6 +8,7 @@ export const profile = {
   phone: "+8801792872188",
   whatsappUrl: "https://wa.me/8801792872188",
   socials: {
+    behance: "https://www.behance.net/mominofficial",
     github: "https://github.com/mominofficial",
     linkedin: "https://www.linkedin.com/in/md-momin-ali-3913b6351",
     instagram: "https://www.instagram.com/momin141016",

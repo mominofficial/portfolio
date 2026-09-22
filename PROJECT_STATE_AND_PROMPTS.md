@@ -220,3 +220,14 @@ This document preserves all user requirements, design guidelines, prompts, proje
   - Synchronized `src/data/projects.js`, `src/data/certificates.js`, `src/data/profile.js`.
   - Added styles in `src/styles/components.css`.
 
+### Prompt 15: Behance Creative Portfolio Integration
+- **User Request**: Add Behance portfolio (`https://www.behance.net/mominofficial`) across the portfolio.
+- **Implementations**:
+  - **Homepage (`index.html`)**: Added `🎨 Behance Portfolio ↗` action button in the Hero CTA group alongside `Explore Portfolio` and `Let's Work Together`. Added Behance to footer links.
+  - **Works Page (`works.html`)**: Added prominent `🎨 Explore Behance Portfolio ↗` button in the section header alongside filter tabs, and added Behance link to footer.
+  - **About Page (`about.html`)**: Added `🎨 Behance Creative Portfolio ↗` button to the portrait identity card, and added Behance link to footer.
+  - **Contact Page (`contact.html`)**: Added dedicated Behance social card with official brand SVG in `.social-links-grid`, and added Behance link to footer.
+  - **Services & Certifications (`services.html`, `certifications.html`)**: Added Behance link to footers across all pages.
+  - **Data & Configuration**: Updated `src/data/profile.js` (`socials.behance`) and `README.md`.
+
+
