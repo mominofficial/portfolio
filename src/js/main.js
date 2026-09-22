@@ -307,27 +307,32 @@ function initProjectModals() {
         modalCompliance.innerHTML = html;
         if (modalCaseHeading) modalCaseHeading.textContent = 'Social Media Management — In-Depth Case Study';
         modalCaseSection.style.display = 'block';
-      } else if (proj.role || proj.creativeWork || (proj.overview && proj.overview !== proj.description)) {
+      } else if (proj.role || proj.creativeWork || (proj.overview && proj.overview !== proj.description) || proj.problem || proj.strategy || proj.result) {
         let html = '';
         if (proj.overview && proj.overview !== proj.description) {
-          html += `<div class="case-item"><strong class="case-label">Short Project Overview:</strong><p>${proj.overview}</p></div>`;
+          html += `<div class="case-item"><strong class="case-label">Project Overview:</strong><p>${proj.overview}</p></div>`;
         }
         if (proj.role) {
           html += `<div class="case-item"><strong class="case-label">My Role:</strong><p>${proj.role}</p></div>`;
         }
         if (proj.creativeWork) {
-          html += `<div class="case-item"><strong class="case-label">Key Creative Work:</strong><p>${proj.creativeWork}</p></div>`;
+          html += `<div class="case-item"><strong class="case-label">Creative &amp; Technical Execution:</strong><p>${proj.creativeWork}</p></div>`;
+        }
+        if (proj.problem) {
+          html += `<div class="case-item"><strong class="case-label">Challenge &amp; Context:</strong><p>${proj.problem}</p></div>`;
+        }
+        if (proj.strategy) {
+          html += `<div class="case-item"><strong class="case-label">Editing, Motion &amp; Research Strategy:</strong><p>${proj.strategy}</p></div>`;
+        }
+        if (proj.result) {
+          html += `<div class="case-item"><strong class="case-label">Recognition &amp; Impact:</strong><p>${proj.result}</p></div>`;
         }
         modalCompliance.innerHTML = html;
-        if (modalCaseHeading) modalCaseHeading.textContent = 'Creative Overview & Role';
-        modalCaseSection.style.display = 'block';
-      } else if (proj.problem || proj.strategy || proj.result) {
-        let html = '';
-        if (proj.problem) html += `<div class="case-item"><strong class="case-label">Problem / Challenge:</strong><p>${proj.problem}</p></div>`;
-        if (proj.strategy) html += `<div class="case-item"><strong class="case-label">Strategy & Implementation:</strong><p>${proj.strategy}</p></div>`;
-        if (proj.result) html += `<div class="case-item"><strong class="case-label">Impact & Result:</strong><p>${proj.result}</p></div>`;
-        modalCompliance.innerHTML = html;
-        if (modalCaseHeading) modalCaseHeading.textContent = 'Case Study Breakdown';
+        if (modalCaseHeading) {
+          modalCaseHeading.textContent = proj.id === 'terra-farm-nasa'
+            ? 'NASA Space Apps 2025 — In-Depth Case Study'
+            : (proj.category === 'branding' ? 'Creative Overview & Case Study' : 'Case Study Breakdown');
+        }
         modalCaseSection.style.display = 'block';
       } else if (proj.gmcCompliance) {
         modalCompliance.innerHTML = `<div class="case-item"><p>${proj.gmcCompliance}</p></div>`;
@@ -349,8 +354,8 @@ function initProjectModals() {
         if (spanText) {
           if (proj.linkLabel) {
             spanText.textContent = proj.linkLabel;
-          } else if (proj.platform === 'YouTube' || proj.url.includes('youtube.com')) {
-            spanText.textContent = 'View Live YouTube Channel';
+          } else if (proj.url.includes('youtu.be') || proj.url.includes('youtube.com') || proj.platform === 'YouTube') {
+            spanText.textContent = 'Watch Video on YouTube';
           } else if (proj.platform === 'Facebook' || proj.url.includes('facebook.com')) {
             spanText.textContent = 'View Live Facebook Page';
           } else if (proj.platform === 'Instagram' || proj.url.includes('instagram.com')) {

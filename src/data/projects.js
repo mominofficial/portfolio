@@ -1,4 +1,32 @@
 export const projects = [
+  // NASA International Space Apps Challenge 2025 (2nd Runner Up)
+  {
+    id: "terra-farm-nasa",
+    title: "TERRA FARM — NASA SPACE APPS CHALLENGE 2025",
+    tagline: "2nd Runner Up & Global Nominee • Space Agriculture & Closed-Loop Earth Bio-Farming",
+    category: "branding",
+    categoryLabel: "Video Editing & Research",
+    featured: true,
+    gridType: "featured-large",
+    image: "nasa-space-apps-runnerup.jpg",
+    url: "https://youtu.be/fQgrHd1F4a4?si=HouRaVhOMJ5AkJf0",
+    linkLabel: "Watch Video on YouTube",
+    overview: "Terra Farm is an advanced space-agriculture and sustainable earth bio-farming ecosystem developed for the NASA International Space Apps Challenge 2025. Winning 2nd Runner Up (Rajshahi Regional Event) and selected as Global Nominee, the project integrates satellite telemetry with closed-loop vertical farming to address planetary food security.",
+    role: "Lead Video Editor & Technical / Scientific Researcher (Team Terra Farm)",
+    creativeWork: "Directed end-to-end visual storytelling, editing DaVinci/Premiere multi-track sequences, designing After Effects motion graphics for orbital telemetry and sensor data HUDs, composing atmospheric cosmic soundscapes, and color grading space-to-earth visuals.",
+    description: "NASA International Space Apps Challenge 2025 award-winning submission. As Video Editor and Technical Researcher, I synthesized complex NASA Earth Observation data into a cinematic 4-minute visual showcase that earned 2nd Runner Up and Global Nominee status.",
+    deliverables: [
+      "Cinematic Video Editing (Premiere Pro & DaVinci Resolve)",
+      "Motion Graphics & Data HUDs (Adobe After Effects)",
+      "NASA Earth & Space Telemetry Research",
+      "Narrative Storyboarding & Pitch Scriptwriting",
+      "Multi-Track Sound Design & Audio Pacing",
+      "Cinematic Color Grading (Cosmic & Bio-Palettes)"
+    ],
+    problem: "NASA Space Apps evaluators review hundreds of global entries in high-stakes judging sessions. Communicating dense agricultural robotics, orbital environmental controls, and closed-loop biochemical cycles in a short presentation without losing scientific rigour or emotional captivation was an enormous challenge.",
+    strategy: "Crafted a compelling 3-act narrative arc: 'The Crisis' (global agricultural degradation and climate challenges), 'The Innovation' (Terra Farm closed-loop modular biosphere), and 'The Galactic Frontier' (space agriculture telemetry informing Earth farming). Designed animated telemetry HUDs, orbital motion paths, synchronized cosmic sound design, and sharp typography to keep retention at peak levels.",
+    result: "Awarded 2nd Runner Up at the NASA International Space Apps Challenge 2025 and officially nominated as Global Nominee. The presentation received exceptional praise from judges for narrative clarity, cinematic visual execution, and rigorous scientific research."
+  },
   // AI & Mobile Applications
   {
     id: "fair-prices",

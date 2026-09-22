@@ -1,13 +1,16 @@
 export const certificates = [
   {
     id: "nasa-space-apps-2025",
-    title: "NASA Space Apps Challenge 2025",
-    award: "Galactic Problem Solver Certificate",
+    title: "NASA Space Apps Challenge 2025 — 2nd Runner Up",
+    award: "2nd Runner Up Trophy & Galactic Problem Solver Certificate",
     issuer: "NASA International Space Apps Challenge",
     date: "October 4–5, 2025",
     signatory: "Dr. Keith Gaddis (Program Scientist, NASA)",
-    image: "cert-nasa.png",
-    description: "Awarded for outstanding participation and collaborative efforts to address complex challenges on Earth and in space during the global 2025 NASA International Space Apps Challenge."
+    image: "nasa-space-apps-runnerup.jpg",
+    certImage: "cert-nasa.png",
+    youtubeUrl: "https://youtu.be/fQgrHd1F4a4?si=HouRaVhOMJ5AkJf0",
+    role: "Video Editor & Technical Researcher (Team Terra Farm)",
+    description: "Honored as 2nd Runner Up (Rajshahi Regional Event) and selected as Global Nominee in the NASA International Space Apps Challenge 2025 for project Terra Farm. Served as Lead Video Editor and Technical Researcher, creating the award-winning presentation narrative, satellite data motion graphics, and scientific synthesis."
   },
   {
     id: "icsetep-workshop",

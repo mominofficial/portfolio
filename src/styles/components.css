@@ -4469,3 +4469,233 @@ html.dark-theme .modal-workflow-step strong {
   }
 }
 
+/* ==========================================================================
+   15. NASA SPACE APPS CHALLENGE 2025 — GLOBAL ACHIEVEMENT SPOTLIGHT
+   ========================================================================== */
+.nasa-spotlight-section {
+  padding: 2.5rem 0 3.5rem 0;
+}
+
+.nasa-spotlight-card {
+  position: relative;
+  background: linear-gradient(135deg, #071f1e 0%, #0d2e2d 50%, #123d3c 100%);
+  border: 1px solid rgba(200, 157, 92, 0.45);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 48px rgba(7, 31, 30, 0.28), 0 0 30px rgba(200, 157, 92, 0.12);
+  padding: 2.75rem;
+  color: #F7F4EC;
+  overflow: hidden;
+}
+
+.nasa-spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(200, 157, 92, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.nasa-spotlight-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.75rem;
+  align-items: center;
+}
+
+.nasa-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.nasa-gold-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(200, 157, 92, 0.18);
+  border: 1px solid var(--accent-gold);
+  color: #F1D49B;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.nasa-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #E2DDD1;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.nasa-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #FFFFFF;
+  margin-bottom: 0.65rem;
+}
+
+.nasa-subtitle {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: #D4CEBF;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+}
+
+.nasa-subtitle span.gold-highlight {
+  color: #F1D49B;
+}
+
+.nasa-desc {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #D4CEBF;
+  margin-bottom: 1.5rem;
+}
+
+.nasa-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.nasa-pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+}
+
+.nasa-pillar-item strong {
+  color: #FFFFFF;
+  display: block;
+  font-size: 0.82rem;
+}
+
+.nasa-pillar-item span {
+  color: #C2BBB0;
+  font-size: 0.76rem;
+}
+
+.nasa-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-nasa-youtube {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #E50914;
+  color: #FFFFFF !important;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.75rem 1.35rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-nasa-youtube:hover {
+  background: #C40812;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.5);
+}
+
+.nasa-media-container {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid rgba(200, 157, 92, 0.35);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.nasa-media-img {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-smooth);
+}
+
+.nasa-media-container:hover .nasa-media-img {
+  transform: scale(1.02);
+}
+
+.nasa-media-badge-overlay {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(7, 31, 30, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(200, 157, 92, 0.4);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nasa-media-badge-text {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #F1D49B;
+  letter-spacing: 0.03em;
+}
+
+.nasa-media-badge-sub {
+  font-size: 0.7rem;
+  color: #D4CEBF;
+}
+
+@media (max-width: 960px) {
+  .nasa-spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .nasa-spotlight-card {
+    padding: 2rem 1.5rem;
+  }
+  .nasa-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .nasa-media-container {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+

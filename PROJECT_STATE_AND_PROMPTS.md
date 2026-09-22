@@ -197,3 +197,26 @@ This document preserves all user requirements, design guidelines, prompts, proje
   - Hero Checklist: Added bullet highlighting 2+ years as Motion Designer, Video Editor & Poster Designer at Royal Hair Wigs (since Oct 2023).
   - About Spotlight: Added `⭐ Experience: 2+ Years Professional Experience (Royal Hair Wigs, since Oct 2023)`.
 
+### Prompt 14: NASA International Space Apps Challenge 2025 (2nd Runner Up) Portfolio Integration
+- **User Request**: Add NASA Space Apps Challenge 2025 2nd Runner Up achievement as a main achievement on the homepage. Include project YouTube video link (`https://youtu.be/fQgrHd1F4a4?si=HouRaVhOMJ5AkJf0`), upload award/trophy photo, and provide a comprehensive Case Study detailing the dual role as Lead Video Editor & Technical/Scientific Researcher for project *Terra Farm*. Build and deploy to GitHub Pages.
+- **Assets Integrated**:
+  - `nasa-space-apps-runnerup.jpg` (User holding 2nd Runner Up trophy with official poster).
+  - YouTube Link: `https://youtu.be/fQgrHd1F4a4?si=HouRaVhOMJ5AkJf0` (Title: *Terra Farm || Nasa Space apps challenge 2025*).
+  - `cert-nasa.png` (Galactic Problem Solver Certificate presented by Dr. Keith Gaddis, Program Scientist, NASA).
+- **Homepage (`index.html`)**:
+  - Added golden glowing Hero badge: `🏆 2ND RUNNER UP — NASA SPACE APPS CHALLENGE 2025`.
+  - Added hero bullet: Lead Video Editor & Technical Researcher for project *Terra Farm*.
+  - Stats bar updated to include: `2nd Runner Up (NASA Space Apps)`.
+  - Standalone **Featured Global Achievement Spotlight**: High-impact cosmic card with gold glow, 4 capability pillars (Cinematic Video Editing, Motion Design & HUDs, Scientific Research, Sound Design), direct YouTube watch action, and case study modal trigger.
+  - Featured Projects showcase: Added Terra Farm marquee award block.
+  - About Spotlight updated with major achievement.
+- **Works Page (`works.html`) & Modal**:
+  - Flagship featured project card at top of grid with YouTube link and interactive Case Study modal trigger.
+  - Multi-section deep-dive Case Study covering Project Overview, Role as Video Editor, Role as Researcher, High-Stakes Evaluation Challenge, Pacing/Motion/Audio Strategy, and Recognition/Awards.
+- **Certifications (`certifications.html`) & About (`about.html`)**:
+  - Upgraded NASA entry to 2nd Runner Up with trophy photograph, YouTube link, and honors distinction.
+  - Added to About portrait card and Experience timeline (October 2025).
+- **Data & Build**:
+  - Synchronized `src/data/projects.js`, `src/data/certificates.js`, `src/data/profile.js`.
+  - Added styles in `src/styles/components.css`.
+

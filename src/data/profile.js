@@ -15,9 +15,9 @@ export const profile = {
     whatsapp: "https://wa.me/8801792872188"
   },
   stats: [
+    { number: "2nd", label: "Runner Up NASA Space Apps" },
     { number: "2+ Years", label: "Industry Experience" },
-    { number: "19+", label: "Projects Shipped" },
-    { number: "10+", label: "Shopify Storefronts" },
+    { number: "20+", label: "Projects Shipped" },
     { number: "100%", label: "Client Focus" }
   ],
   education: [
@@ -48,6 +48,12 @@ export const profile = {
     creative: ["Adobe After Effects", "Adobe Premiere Pro", "Canva Pro", "CapCut Pro Video Editing", "Social Media Design", "UI/UX Prototyping", "Store Banners"]
   },
   experience: [
+    {
+      period: "Oct 2025",
+      role: "Lead Video Editor & Technical Researcher (2nd Runner Up)",
+      company: "NASA International Space Apps Challenge 2025",
+      description: "Won 2nd Runner Up (Rajshahi Regional Event) & Global Nominee for project 'Terra Farm'. Crafted the cinematic visual storytelling, After Effects telemetry motion graphics, sound design, and researched NASA Earth & Space datasets for high-stakes judging."
+    },
     {
       period: "Oct 2023 — Present",
       role: "Motion Designer, Video Editor & Social Media Poster Designer",
